@@ -13,12 +13,11 @@ import {
     SheetTitle,
     SheetTrigger,
 } from '@/components/ui/sheet'
-import { useNavigationStore } from '@/store/navigation-store'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
+import { ColorPicker, LayoutSettings } from './settings'
 
 export function NavigationSettings() {
-    const setOrientation = useNavigationStore(state => state.setOrientation)
-
     return (
         <div className='hidden md:flex items-center'>
             <Sheet>
@@ -32,32 +31,10 @@ export function NavigationSettings() {
                         <SheetTitle>Pengaturan Tampilan</SheetTitle>
                     </SheetHeader>
                     <ScrollArea className='h-[calc(100vh-4rem)]'>
-                        <div className='flex flex-col gap-4 p-6'>
-                            <div className='space-y-2'>
-                                <h4 className='text-sm font-medium'>
-                                    Tata Letak Menu
-                                </h4>
-                                <div className='flex flex-col gap-2'>
-                                    <Button
-                                        variant='outline'
-                                        className='justify-start'
-                                        onClick={() =>
-                                            setOrientation('horizontal')
-                                        }
-                                    >
-                                        Menu Horizontal
-                                    </Button>
-                                    <Button
-                                        variant='outline'
-                                        className='justify-start'
-                                        onClick={() =>
-                                            setOrientation('vertical')
-                                        }
-                                    >
-                                        Menu Vertikal
-                                    </Button>
-                                </div>
-                            </div>
+                        <div className='flex flex-col gap-6 p-6'>
+                            <LayoutSettings />
+                            <Separator />
+                            <ColorPicker />
                         </div>
                     </ScrollArea>
                 </SheetContent>
