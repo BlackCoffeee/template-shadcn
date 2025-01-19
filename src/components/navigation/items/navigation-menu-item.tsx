@@ -25,15 +25,13 @@ export function NavigationMenuItem({ item }: NavigationMenuItemProps) {
                 <item.icon
                     className={cn(
                         'h-4 w-4',
-                        isActive ? 'text-primary' : 'text-muted-foreground'
+                        isActive ? 'text-primary' : 'text-foreground'
                     )}
                 />
             )}
             <span
                 className={cn(
-                    isActive
-                        ? 'text-primary font-medium'
-                        : 'text-muted-foreground'
+                    isActive ? 'text-primary font-medium' : 'text-foreground'
                 )}
             >
                 {item.title}
