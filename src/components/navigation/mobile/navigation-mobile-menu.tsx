@@ -6,7 +6,7 @@
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { SheetContent, SheetHeader } from '@/components/ui/sheet'
 import { menuItems } from '../menu-items'
-import { NavigationMenuItem } from '../items/navigation-menu-item'
+import { NavigationMobileMenuItem } from './navigation-mobile-menu-item'
 import { Logo } from '@/components/brand/logo'
 
 export function NavigationMobileMenu() {
@@ -19,7 +19,10 @@ export function NavigationMobileMenu() {
                 <div className='flex flex-col gap-2 p-4'>
                     <nav className='flex flex-col gap-1'>
                         {menuItems.map(item => (
-                            <NavigationMenuItem key={item.href} item={item} />
+                            <NavigationMobileMenuItem
+                                key={item.href}
+                                item={item}
+                            />
                         ))}
                     </nav>
                 </div>
