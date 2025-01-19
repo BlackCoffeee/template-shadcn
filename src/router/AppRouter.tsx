@@ -6,7 +6,7 @@
 
 import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layouts/root-layout'
-import { Dashboard, Login, Register } from '@/pages'
+import { Dashboard, Login, Register, ForgotPassword } from '@/pages'
 
 export function AppRouter() {
     return (
@@ -22,7 +22,7 @@ export function AppRouter() {
             <Route path='/pages/auth/login' element={<Login />} />
             <Route
                 path='/pages/auth/forgot-password'
-                element={<div>Forgot Password Page</div>}
+                element={<ForgotPassword />}
             />
             <Route path='/pages/auth/register' element={<Register />} />
         </Routes>
