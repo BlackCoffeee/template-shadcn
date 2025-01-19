@@ -8,13 +8,12 @@ import { StatCard } from '@/components/dashboard/StatCard'
 import { RecentActivities } from '@/components/dashboard/RecentActivities'
 import { OverviewChart } from '@/components/dashboard/OverviewChart'
 import { Users, FileText, ShoppingCart, ArrowUpRight } from 'lucide-react'
+import { PageTitle } from '@/components/ui/page-title'
 
 const Dashboard: React.FC = () => {
     return (
-        <div className='flex-1 space-y-4 p-4 md:p-8 pt-6'>
-            <div className='flex items-center justify-between space-y-2'>
-                <h2 className='text-3xl font-bold tracking-tight'>Dashboard</h2>
-            </div>
+        <>
+            <PageTitle title='Dashboard' subtitle='Halaman Dashboard' />
 
             <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
                 <StatCard
@@ -53,7 +52,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <RecentActivities />
             </div>
-        </div>
+        </>
     )
 }
 

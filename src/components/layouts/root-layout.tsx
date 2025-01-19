@@ -16,7 +16,7 @@ export function RootLayout() {
     return (
         <div className='min-h-screen bg-background flex flex-col'>
             <Header />
-            <div className='container flex-grow flex gap-6 py-6'>
+            <div className='flex-grow flex gap-6 py-6 bg-muted'>
                 {orientation === 'vertical' && (
                     <aside
                         className={cn(
@@ -28,7 +28,9 @@ export function RootLayout() {
                     </aside>
                 )}
                 <main className='flex-grow'>
-                    <Outlet />
+                    <div className='flex-1 space-y-4 px-8 bg-muted'>
+                        <Outlet />
+                    </div>
                 </main>
             </div>
             <Footer />
