@@ -6,7 +6,7 @@
 
 import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layouts/root-layout'
-import { Dashboard } from '@/pages'
+import { Dashboard, Login } from '@/pages'
 
 export function AppRouter() {
     return (
@@ -16,9 +16,10 @@ export function AppRouter() {
                 <Route path='/ecommerce' element={<div>Ecommerce Page</div>} />
                 <Route path='/project' element={<div>Project Page</div>} />
                 <Route path='/marketing' element={<div>Marketing Page</div>} />
-                <Route path='/login' element={<div>Login Page</div>} />
+
                 {/* Tambahkan route lainnya sesuai kebutuhan */}
             </Route>
+            <Route path='/pages/auth/login' element={<Login />} />
         </Routes>
     )
 }
