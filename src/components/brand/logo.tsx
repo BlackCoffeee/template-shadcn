@@ -5,15 +5,31 @@
  */
 
 import { cn } from '../../lib/utils'
+import { useNavigationStore } from '@/store/navigation-store'
 
 export interface LogoProps {
     className?: string
 }
 
 export function Logo({ className }: LogoProps) {
+    const { collapsed } = useNavigationStore()
+
     return (
-        <a className={cn('flex items-center space-x-2', className)} href='/'>
-            <span className='font-bold text-3xl'>
+        <a className={cn('flex items-center', className)} href='/'>
+            <img
+                src='/logo.png'
+                alt='Logo'
+                className={cn(
+                    'h-8 w-8 transition-transform duration-300',
+                    collapsed && 'scale-90'
+                )}
+            />
+            <span
+                className={cn(
+                    'ml-2 font-bold text-xl transition-all duration-300',
+                    collapsed && 'hidden'
+                )}
+            >
                 {import.meta.env.VITE_APP_NAME}
             </span>
         </a>

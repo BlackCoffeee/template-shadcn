@@ -12,18 +12,23 @@ import { UserProfile } from '@/components/layouts/user/user-profile'
 import { NavigationCollapseButton } from '@/components/navigation/collapse/navigation-collapse-button'
 import { NavigationMobileTrigger } from '@/components/navigation/mobile/navigation-mobile-trigger'
 import { NavigationMobileMenu } from '@/components/navigation/mobile/navigation-mobile-menu'
+import { cn } from '@/lib/utils'
 
-export function Header() {
+interface HeaderProps {
+    className?: string
+}
+
+export function Header({ className }: HeaderProps) {
     const { orientation } = useNavigationStore()
 
     return (
-        <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
-            <div className='container flex h-12 sm:h-14 items-center px-2 sm:px-3 lg:px-4'>
-                <div className='mr-2 sm:mr-4 flex items-center gap-2'>
+        <header className={cn('w-full', className)}>
+            <div className='container flex h-14 items-center px-4'>
+                <div className='mr-4 flex items-center gap-2'>
                     <NavigationMobileTrigger>
                         <NavigationMobileMenu />
                     </NavigationMobileTrigger>
-                    <Logo className='hidden md:flex' />
+                    <Logo className='md:hidden' />
                     <NavigationCollapseButton />
                 </div>
                 {orientation === 'horizontal' && (
@@ -31,8 +36,8 @@ export function Header() {
                         <NavigationMenu />
                     </div>
                 )}
-                <div className='flex flex-1 items-center justify-end space-x-2 sm:space-x-4'>
-                    <nav className='flex items-center gap-2 sm:gap-4'>
+                <div className='flex flex-1 items-center justify-end space-x-4'>
+                    <nav className='flex items-center gap-4'>
                         <NavigationSettings />
                         <ThemeToggle />
                         <UserProfile />

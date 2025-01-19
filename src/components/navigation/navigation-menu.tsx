@@ -7,6 +7,7 @@
 import { useNavigationStore } from '@/store/navigation-store'
 import { NavigationMenuHorizontal } from './horizontal/navigation-menu-horizontal'
 import { NavigationMenuVertical } from './vertical/navigation-menu-vertical'
+import { cn } from '@/lib/utils'
 
 export function NavigationMenu() {
     const { orientation } = useNavigationStore()
@@ -15,5 +16,9 @@ export function NavigationMenu() {
         return <NavigationMenuHorizontal />
     }
 
-    return <NavigationMenuVertical />
+    return (
+        <div className={cn('h-full')}>
+            <NavigationMenuVertical />
+        </div>
+    )
 }

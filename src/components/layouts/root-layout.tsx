@@ -14,26 +14,47 @@ export function RootLayout() {
     const { orientation, collapsed } = useNavigationStore()
 
     return (
-        <div className='min-h-screen bg-background flex flex-col'>
-            <Header />
-            <div className='flex-grow flex gap-6 py-6 bg-muted'>
+        <div className='min-h-screen bg-background'>
+            <div
+                className={cn(
+                    'fixed top-0 right-0 z-50',
+                    orientation === 'vertical'
+                        ? collapsed
+                            ? 'left-16'
+                            : 'left-64'
+                        : 'left-0'
+                )}
+            >
+                <Header className='border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60' />
+            </div>
+
+            <div className='flex pt-14'>
                 {orientation === 'vertical' && (
                     <aside
                         className={cn(
-                            'hidden md:block transition-all duration-300',
+                            'hidden md:block fixed left-0 top-0 h-screen transition-all duration-300 bg-background border-r',
                             collapsed ? 'w-16' : 'w-64'
                         )}
                     >
-                        <NavigationMenu />
+                        <div className=' h-full'>
+                            <NavigationMenu />
+                        </div>
                     </aside>
                 )}
-                <main className='flex-grow'>
-                    <div className='flex-1 space-y-4 px-8 bg-muted'>
+
+                <main
+                    className={cn(
+                        'flex-1 min-h-[calc(100vh-3.5rem)] bg-muted',
+                        orientation === 'vertical' &&
+                            (collapsed ? 'md:ml-16' : 'md:ml-64')
+                    )}
+                >
+                    <div className='container py-6 space-y-4'>
                         <Outlet />
                     </div>
+                    <Footer />
                 </main>
             </div>
-            <Footer />
         </div>
     )
 }

@@ -6,7 +6,7 @@
 
 export function Footer() {
     return (
-        <footer className='border-t py-6 bg-background'>
+        <footer className='border-t py-6 bg-background mt-auto'>
             <div className='container flex items-center justify-center'>
                 <p className='text-sm text-muted-foreground'>
                     © {new Date().getFullYear()}{' '}
