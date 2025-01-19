@@ -5,11 +5,19 @@
  */
 
 import { LucideIcon } from 'lucide-react'
-import { Home, HelpCircle } from 'lucide-react'
+import {
+    Home,
+    HelpCircle,
+    LayoutDashboard,
+    Settings,
+    Users,
+} from 'lucide-react'
+
 export interface MenuItem {
     title: string
     href: string
     icon?: LucideIcon
+    children?: MenuItem[]
 }
 
 export const menuItems: MenuItem[] = [
@@ -19,7 +27,44 @@ export const menuItems: MenuItem[] = [
         icon: Home,
     },
     {
-        title: 'Help Center',
+        title: 'Pages',
+        href: '/pages',
+        icon: LayoutDashboard,
+        children: [
+            {
+                title: 'Users',
+                href: '/pages/users',
+                icon: Users,
+                children: [
+                    {
+                        title: 'List',
+                        href: '/pages/users/list',
+                    },
+                    {
+                        title: 'Create',
+                        href: '/pages/users/create',
+                    },
+                ],
+            },
+            {
+                title: 'Settings',
+                href: '/pages/settings',
+                icon: Settings,
+                children: [
+                    {
+                        title: 'General',
+                        href: '/pages/settings/general',
+                    },
+                    {
+                        title: 'Security',
+                        href: '/pages/settings/security',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'Help',
         href: '/help',
         icon: HelpCircle,
     },
