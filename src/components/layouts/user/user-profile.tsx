@@ -34,7 +34,9 @@ export function UserProfile() {
                         <AvatarImage src={user.image} alt={user.name} />
                         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                     </Avatar>
-                    <span className='text-sm font-medium'>{user.name}</span>
+                    <span className='hidden md:inline-block text-sm font-medium'>
+                        {user.name}
+                    </span>
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className='w-56' align='end' forceMount>

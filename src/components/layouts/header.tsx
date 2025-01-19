@@ -21,7 +21,11 @@ export function Header() {
                     <Logo />
                     <NavigationCollapseButton />
                 </div>
-                {orientation === 'horizontal' && <NavigationMenu />}
+                {orientation === 'horizontal' && (
+                    <div className='hidden md:block flex-1'>
+                        <NavigationMenu />
+                    </div>
+                )}
                 <div className='flex flex-1 items-center justify-end space-x-4'>
                     <nav className='flex items-center gap-4'>
                         <NavigationSettings />

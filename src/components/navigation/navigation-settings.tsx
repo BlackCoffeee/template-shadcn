@@ -18,20 +18,26 @@ export function NavigationSettings() {
     const setOrientation = useNavigationStore(state => state.setOrientation)
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant='ghost' size='icon'>
-                    <Settings className='h-4 w-4' />
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
-                <DropdownMenuItem onClick={() => setOrientation('horizontal')}>
-                    Menu Horizontal
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setOrientation('vertical')}>
-                    Menu Vertikal
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
+        <div className='hidden md:flex items-center'>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button variant='ghost' size='icon'>
+                        <Settings className='h-4 w-4' />
+                    </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align='end'>
+                    <DropdownMenuItem
+                        onClick={() => setOrientation('horizontal')}
+                    >
+                        Menu Horizontal
+                    </DropdownMenuItem>
+                    <DropdownMenuItem
+                        onClick={() => setOrientation('vertical')}
+                    >
+                        Menu Vertikal
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
     )
 }

@@ -20,7 +20,7 @@ export function RootLayout() {
                 {orientation === 'vertical' && (
                     <aside
                         className={cn(
-                            'transition-all duration-300',
+                            'hidden md:block transition-all duration-300',
                             collapsed ? 'w-16' : 'w-64'
                         )}
                     >

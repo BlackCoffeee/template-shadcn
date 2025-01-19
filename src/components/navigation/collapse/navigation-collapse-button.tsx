@@ -17,10 +17,13 @@ interface NavigationCollapseButtonProps {
 export function NavigationCollapseButton({
     className,
 }: NavigationCollapseButtonProps) {
-    const { collapsed, toggleCollapsed } = useNavigationStore()
+    const { collapsed, toggleCollapsed, orientation } = useNavigationStore()
+
+    // Jika orientasi horizontal, tidak perlu menampilkan tombol collapse
+    if (orientation === 'horizontal') return null
 
     return (
-        <div className={cn('flex items-center', className)}>
+        <div className={cn('hidden md:flex items-center', className)}>
             <Button
                 variant='ghost'
                 size='icon'
