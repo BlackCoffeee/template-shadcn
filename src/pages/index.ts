@@ -5,4 +5,5 @@
  */
 
 export { default as Dashboard } from './dashboard/Dashboard'
+export { default as Login } from './authentication/Login'
 // export komponen halaman lainnya di sini
