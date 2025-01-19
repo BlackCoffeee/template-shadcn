@@ -4,9 +4,15 @@
  * @createAt 2025-01-18
  */
 
-export function Logo() {
+import { cn } from '../../lib/utils'
+
+export interface LogoProps {
+    className?: string
+}
+
+export function Logo({ className }: LogoProps) {
     return (
-        <a className='mr-6 flex items-center space-x-2' href='/'>
+        <a className={cn('flex items-center space-x-2', className)} href='/'>
             <span className='font-bold text-3xl'>
                 {import.meta.env.VITE_APP_NAME}
             </span>

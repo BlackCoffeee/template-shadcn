@@ -23,7 +23,7 @@ export function Header() {
                     <NavigationMobileTrigger>
                         <NavigationMobileMenu />
                     </NavigationMobileTrigger>
-                    <Logo />
+                    <Logo className='hidden md:flex' />
                     <NavigationCollapseButton />
                 </div>
                 {orientation === 'horizontal' && (
