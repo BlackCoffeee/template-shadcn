@@ -4,7 +4,7 @@
  * @createAt 2025-01-18
  */
 
-import { LucideIcon } from 'lucide-react'
+import { KeyRound, LucideIcon } from 'lucide-react'
 import {
     Home,
     HelpCircle,
@@ -32,17 +32,17 @@ export const menuItems: MenuItem[] = [
         icon: LayoutDashboard,
         children: [
             {
-                title: 'Users',
-                href: '/pages/users',
-                icon: Users,
+                title: 'Authentication',
+                href: '/pages/auth',
+                icon: KeyRound,
                 children: [
                     {
-                        title: 'List',
-                        href: '/pages/users/list',
+                        title: 'Login',
+                        href: '/pages/auth/login',
                     },
                     {
-                        title: 'Create',
-                        href: '/pages/users/create',
+                        title: 'Register',
+                        href: '/pages/auth/register',
                     },
                 ],
             },
