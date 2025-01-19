@@ -16,7 +16,7 @@ export function AppRouter() {
                 <Route path='/ecommerce' element={<div>Ecommerce Page</div>} />
                 <Route path='/project' element={<div>Project Page</div>} />
                 <Route path='/marketing' element={<div>Marketing Page</div>} />
-                <Route path='/analytics' element={<div>Analytics Page</div>} />
+                <Route path='/login' element={<div>Login Page</div>} />
                 {/* Tambahkan route lainnya sesuai kebutuhan */}
             </Route>
         </Routes>
