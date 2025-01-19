@@ -9,6 +9,7 @@ import { Settings } from 'lucide-react'
 import {
     Sheet,
     SheetContent,
+    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
@@ -29,6 +30,9 @@ export function NavigationSettings() {
                 <SheetContent side='right' className='w-[300px] p-0'>
                     <SheetHeader className='p-6 border-b'>
                         <SheetTitle>Pengaturan Tampilan</SheetTitle>
+                        <SheetDescription>
+                            Sesuaikan tampilan aplikasi sesuai preferensi Anda
+                        </SheetDescription>
                     </SheetHeader>
                     <ScrollArea className='h-[calc(100vh-4rem)]'>
                         <div className='flex flex-col gap-6 p-6'>
