@@ -16,14 +16,14 @@ export function LayoutSettings() {
             <div className='flex flex-col gap-2'>
                 <Button
                     variant='outline'
-                    className='justify-start'
+                    className='justify-center'
                     onClick={() => setOrientation('horizontal')}
                 >
                     Menu Horizontal
                 </Button>
                 <Button
                     variant='outline'
-                    className='justify-start'
+                    className='justify-center'
                     onClick={() => setOrientation('vertical')}
                 >
                     Menu Vertikal
