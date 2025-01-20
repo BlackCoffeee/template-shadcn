@@ -26,7 +26,7 @@ export function RootLayout() {
                         : '[--sidebar-width:16rem]'
                 )}
             >
-                <Header className='border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60' />
+                <Header className='border-b border-foreground/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60' />
             </div>
 
             <div className='flex flex-1 pt-14'>
@@ -37,7 +37,7 @@ export function RootLayout() {
                             collapsed ? 'w-16' : 'w-64'
                         )}
                     >
-                        <div className='h-full'>
+                        <div className='h-full border-r border-foreground/10'>
                             <NavigationMenu />
                         </div>
                     </aside>
@@ -45,7 +45,7 @@ export function RootLayout() {
 
                 <main
                     className={cn(
-                        'flex-1 flex flex-col min-h-[calc(100vh-3.5rem)] bg-muted',
+                        'flex-1 flex flex-col min-h-[calc(100vh-3.5rem)] bg-page',
                         orientation === 'vertical' &&
                             (collapsed ? 'md:ml-16' : 'md:ml-64')
                     )}

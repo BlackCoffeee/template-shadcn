@@ -16,6 +16,7 @@ export default {
         },
         extend: {
             colors: {
+                page: 'hsl(var(--page))',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
