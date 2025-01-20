@@ -11,15 +11,15 @@ import { ProfileAbout } from './profile-about'
 export function ProfileTabs() {
     return (
         <Tabs defaultValue='about' className='w-full'>
-            <TabsList className='grid w-full grid-cols-2'>
+            <TabsList className='grid w-full grid-cols-2 bg-background'>
                 <TabsTrigger
-                    className='data-[state=active]:text-primary'
+                    className='data-[state=active]:bg-primary/10 data-[state=active]:text-primary'
                     value='about'
                 >
                     About
                 </TabsTrigger>
                 <TabsTrigger
-                    className='data-[state=active]:text-primary'
+                    className='data-[state=active]:bg-primary/10 data-[state=active]:text-primary'
                     value='timeline'
                 >
                     Timeline
