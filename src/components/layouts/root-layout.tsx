@@ -18,11 +18,12 @@ export function RootLayout() {
             <div
                 className={cn(
                     'fixed top-0 right-0 z-50',
-                    orientation === 'vertical'
-                        ? collapsed
-                            ? 'left-16'
-                            : 'left-64'
-                        : 'left-0'
+                    'left-0',
+                    orientation === 'vertical' &&
+                        'md:left-[var(--sidebar-width)]',
+                    collapsed
+                        ? '[--sidebar-width:4rem]'
+                        : '[--sidebar-width:16rem]'
                 )}
             >
                 <Header className='border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60' />
@@ -36,7 +37,7 @@ export function RootLayout() {
                             collapsed ? 'w-16' : 'w-64'
                         )}
                     >
-                        <div className=' h-full'>
+                        <div className='h-full'>
                             <NavigationMenu />
                         </div>
                     </aside>
