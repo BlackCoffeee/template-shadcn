@@ -6,14 +6,26 @@
 
 import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layouts/root-layout'
-import { Dashboard, Login, Register, ForgotPassword } from '@/pages'
+import { Dashboard, Login, Register, ForgotPassword, Profile } from '@/pages'
 
 export function AppRouter() {
     return (
         <Routes>
             <Route element={<RootLayout />}>
                 <Route path='/' element={<Dashboard />} />
-                <Route path='/ecommerce' element={<div>Ecommerce Page</div>} />
+                <Route path='/account/profile' element={<Profile />} />
+                <Route
+                    path='/account/profile/teams'
+                    element={<div>Teams Page</div>}
+                />
+                <Route
+                    path='/account/profile/projects'
+                    element={<div>Projects Page</div>}
+                />
+                <Route
+                    path='/account/profile/connections'
+                    element={<div>Connections Page</div>}
+                />
                 <Route path='/project' element={<div>Project Page</div>} />
                 <Route path='/marketing' element={<div>Marketing Page</div>} />
 
