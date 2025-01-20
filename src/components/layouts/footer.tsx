@@ -6,9 +6,9 @@
 
 export function Footer() {
     return (
-        <footer className='border-t border-foreground/10 py-6 bg-background mt-auto'>
-            <div className='container flex items-center justify-center'>
-                <p className='text-sm text-muted-foreground'>
+        <footer className=' py-4 mt-auto'>
+            <div className='container flex items-center justify-start'>
+                <p className='text-sm text-foreground'>
                     © {new Date().getFullYear()}{' '}
                     {import.meta.env.VITE_APP_NAME}. All rights reserved.
                 </p>
