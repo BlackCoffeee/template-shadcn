@@ -7,7 +7,6 @@ import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { NavigationMenu } from '@/components/navigation/navigation-menu'
 import { NavigationSettings } from '@/components/navigation/navigation-settings'
 import { useNavigationStore } from '@/store/navigation-store'
-import { Logo } from '@/components/brand/logo'
 import { UserProfile } from '@/components/layouts/user/user-profile'
 import { NavigationCollapseButton } from '@/components/navigation/collapse/navigation-collapse-button'
 import { NavigationMobileTrigger } from '@/components/navigation/mobile/navigation-mobile-trigger'
@@ -28,7 +27,6 @@ export function Header({ className }: HeaderProps) {
                     <NavigationMobileTrigger>
                         <NavigationMobileMenu />
                     </NavigationMobileTrigger>
-                    <Logo className='md:hidden' />
                     <NavigationCollapseButton />
                 </div>
                 {orientation === 'horizontal' && (

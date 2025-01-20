@@ -15,7 +15,7 @@ export function Logo({ className }: LogoProps) {
     const { collapsed } = useNavigationStore()
 
     return (
-        <a className={cn('flex items-center', className)} href='/'>
+        <a className={cn('inline-flex items-center', className)} href='/'>
             <img
                 src='/logo.png'
                 alt='Logo'
