@@ -11,10 +11,10 @@ import { MapPin, Briefcase, Calendar } from 'lucide-react'
 export function ProfileHeader() {
     // TODO: Ganti dengan data user yang sebenarnya
     const user = {
-        name: 'John Doe',
-        avatar: 'https://github.com/shadcn.png',
-        role: 'UX Designer',
-        location: 'Vatican City',
+        name: 'Muhammad Arif',
+        avatar: 'https://github.com/BlackCoffeee.png',
+        role: 'Software Engineer',
+        location: 'Banjarmasin, Indonesia',
         joinedDate: 'April 2021',
     }
 
@@ -25,7 +25,7 @@ export function ProfileHeader() {
                     <AvatarImage src={user.avatar} alt={user.name} />
                     <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                 </Avatar>
-                <div className='flex flex-1 flex-col items-center gap-1 sm:gap-2 -mt-12 sm:mt-0 sm:items-start sm:pl-4'>
+                <div className='flex flex-1 flex-col items-center gap-1 sm:gap-2 -mt-12 sm:mt-0 sm:items-start sm:pl-8'>
                     <h2 className='text-2xl font-bold'>{user.name}</h2>
                     <div className='grid grid-cols-2 sm:flex sm:flex-wrap justify-center sm:justify-start items-center gap-y-2 gap-x-4 sm:gap-4 text-sm text-muted-foreground'>
                         <div className='flex items-center gap-1 sm:gap-2'>

@@ -18,9 +18,9 @@ import {
 export function UserProfile() {
     // TODO: Ganti dengan data user yang sebenarnya
     const user = {
-        name: 'John Doe',
-        email: 'john@example.com',
-        image: 'https://github.com/shadcn.png',
+        name: 'Muhammad Arif',
+        email: 'arif@unism.ac.id',
+        image: 'https://github.com/BlackCoffeee.png',
     }
 
     return (
@@ -28,7 +28,7 @@ export function UserProfile() {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant='ghost'
-                    className='flex items-center gap-2 px-2'
+                    className='flex items-center gap-2 px-2 hover:bg-transparent'
                 >
                     <Avatar className='h-8 w-8'>
                         <AvatarImage src={user.image} alt={user.name} />
