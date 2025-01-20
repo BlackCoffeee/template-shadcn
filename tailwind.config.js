@@ -80,4 +80,10 @@ export default {
         },
     },
     plugins: [require('tailwindcss-animate')],
+    variants: {
+        extend: {
+            scale: ['system'],
+            rotate: ['system'],
+        },
+    },
 }
