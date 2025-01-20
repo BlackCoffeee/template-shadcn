@@ -64,6 +64,17 @@ export const menuItems: MenuItem[] = [
         ],
     },
     {
+        title: 'Account',
+        href: '/account',
+        icon: Users,
+        children: [
+            {
+                title: 'Profile',
+                href: '/account/profile',
+            },
+        ],
+    },
+    {
         title: 'Help',
         href: '/help',
         icon: HelpCircle,
