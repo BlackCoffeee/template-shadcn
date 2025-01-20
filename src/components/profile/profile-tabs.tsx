@@ -12,8 +12,18 @@ export function ProfileTabs() {
     return (
         <Tabs defaultValue='about' className='w-full'>
             <TabsList className='grid w-full grid-cols-2'>
-                <TabsTrigger value='about'>About</TabsTrigger>
-                <TabsTrigger value='timeline'>Timeline</TabsTrigger>
+                <TabsTrigger
+                    className='data-[state=active]:text-primary'
+                    value='about'
+                >
+                    About
+                </TabsTrigger>
+                <TabsTrigger
+                    className='data-[state=active]:text-primary'
+                    value='timeline'
+                >
+                    Timeline
+                </TabsTrigger>
             </TabsList>
             <TabsContent value='about'>
                 <ProfileAbout />
