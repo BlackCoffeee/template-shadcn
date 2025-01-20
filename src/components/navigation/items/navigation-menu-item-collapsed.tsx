@@ -93,7 +93,7 @@ export function NavigationMenuItemCollapsed({
                                     'h-4 w-4',
                                     isActive
                                         ? 'text-primary'
-                                        : 'text-muted-foreground'
+                                        : 'text-foreground'
                                 )}
                             />
                         )}
@@ -116,7 +116,7 @@ export function NavigationMenuItemCollapsed({
                                         'h-4 w-4',
                                         isActive
                                             ? 'text-primary'
-                                            : 'text-muted-foreground'
+                                            : 'text-foreground'
                                     )}
                                 />
                             )}
