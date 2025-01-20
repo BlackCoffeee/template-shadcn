@@ -14,7 +14,7 @@ export function RootLayout() {
     const { orientation, collapsed } = useNavigationStore()
 
     return (
-        <div className='min-h-screen bg-background'>
+        <div className='min-h-screen flex flex-col bg-background'>
             <div
                 className={cn(
                     'fixed top-0 right-0 z-50',
@@ -29,7 +29,7 @@ export function RootLayout() {
                 <Header className='border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60' />
             </div>
 
-            <div className='flex pt-14'>
+            <div className='flex flex-1 pt-14'>
                 {orientation === 'vertical' && (
                     <aside
                         className={cn(
@@ -45,12 +45,12 @@ export function RootLayout() {
 
                 <main
                     className={cn(
-                        'flex-1 min-h-[calc(100vh-3.5rem)] bg-muted',
+                        'flex-1 flex flex-col min-h-[calc(100vh-3.5rem)] bg-muted',
                         orientation === 'vertical' &&
                             (collapsed ? 'md:ml-16' : 'md:ml-64')
                     )}
                 >
-                    <div className='container py-6 space-y-4'>
+                    <div className='container flex-1 py-6 space-y-4'>
                         <Outlet />
                     </div>
                     <Footer />
