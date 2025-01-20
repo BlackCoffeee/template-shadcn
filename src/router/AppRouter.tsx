@@ -6,7 +6,14 @@
 
 import { Routes, Route } from 'react-router-dom'
 import { RootLayout } from '@/components/layouts/root-layout'
-import { Dashboard, Login, Register, ForgotPassword, Profile } from '@/pages'
+import {
+    Dashboard,
+    Login,
+    Register,
+    ForgotPassword,
+    Profile,
+    DataTablesPage,
+} from '@/pages'
 
 export function AppRouter() {
     return (
@@ -14,10 +21,7 @@ export function AppRouter() {
             <Route element={<RootLayout />}>
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/account/profile' element={<Profile />} />
-                <Route
-                    path='/account/profile/teams'
-                    element={<div>Teams Page</div>}
-                />
+                <Route path='/ui/data-tables' element={<DataTablesPage />} />
                 <Route
                     path='/account/profile/projects'
                     element={<div>Projects Page</div>}

@@ -4,7 +4,7 @@
  * @createAt 2025-01-18
  */
 
-import { KeyRound, LucideIcon } from 'lucide-react'
+import { KeyRound, LayoutGrid, LucideIcon } from 'lucide-react'
 import {
     Home,
     HelpCircle,
@@ -60,6 +60,17 @@ export const menuItems: MenuItem[] = [
                         href: '/pages/settings/security',
                     },
                 ],
+            },
+        ],
+    },
+    {
+        title: 'UI Components',
+        href: '/ui',
+        icon: LayoutGrid,
+        children: [
+            {
+                title: 'Data Tables',
+                href: '/ui/data-tables',
             },
         ],
     },
