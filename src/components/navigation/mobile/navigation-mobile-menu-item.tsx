@@ -1,10 +1,10 @@
 /**
  * Komponen item menu untuk navigasi mobile
  * @author Muhammad Arif <https://github.com/BlackCoffeee>
- * @createAt 2024-01-19
+ * @createAt 2025-01-19
  */
 import { cn } from '@/lib/utils'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Circle } from 'lucide-react'
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { MenuItem } from '../menu-items'
@@ -43,6 +43,9 @@ export function NavigationMobileMenuItem({
                     window.dispatchEvent(event)
                 }}
             >
+                {level > 0 && (
+                    <Circle className='h-1.5 w-1.5 text-muted-foreground' />
+                )}
                 {item.icon && (
                     <item.icon
                         className={cn(

@@ -1,12 +1,12 @@
 /**
  * Komponen untuk menampilkan menu dropdown pada navigasi horizontal
  * @author Muhammad Arif <https://github.com/BlackCoffeee>
- * @createAt 2024-01-19
+ * @createAt 2025-01-19
  */
 
 import * as React from 'react'
 import { cn } from '@/lib/utils'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Dot } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { MenuItem } from '../menu-items'
 import {
@@ -69,6 +69,7 @@ export function NavigationMenuItemHorizontalWithChildren({
                         level > 0 && 'pl-6'
                     )}
                 >
+                    {level > 0 && <Dot className='h-1 w-1 text-foreground' />}
                     {menuItem.icon && <menuItem.icon className='h-4 w-4' />}
                     <span>{menuItem.title}</span>
                 </Link>
