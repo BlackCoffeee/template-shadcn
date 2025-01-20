@@ -43,7 +43,7 @@ export function ProfileHeader() {
                     </div>
                 </div>
                 <div className='sm:self-center'>
-                    <Button className='bg-[#6366F1] hover:bg-[#5558E3] my-4 sm:mt-0 sm:mr-4'>
+                    <Button className='bg-primary my-4 sm:mt-0 sm:mr-4'>
                         Connected
                     </Button>
                 </div>
