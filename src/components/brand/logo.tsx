@@ -17,7 +17,7 @@ export function Logo({ className }: LogoProps) {
     return (
         <a className={cn('inline-flex items-center', className)} href='/'>
             <img
-                src='/logo.png'
+                src='/logo.svg'
                 alt='Logo'
                 className={cn(
                     'h-8 w-8 transition-transform duration-300',
