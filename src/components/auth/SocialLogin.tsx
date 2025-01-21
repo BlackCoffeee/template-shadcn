@@ -13,7 +13,10 @@ export const SocialLogin = () => {
                 atau lanjutkan dengan
             </p>
             <div className='grid grid-cols-2 gap-4'>
-                <Button variant='outline'>
+                <Button
+                    variant='outline'
+                    className='border-muted-foreground hover:bg-primary/50'
+                >
                     <img
                         src='/google.svg'
                         alt='Google'
@@ -21,7 +24,10 @@ export const SocialLogin = () => {
                     />
                     Google
                 </Button>
-                <Button variant='outline'>
+                <Button
+                    variant='outline'
+                    className='border-muted-foreground hover:bg-primary/50'
+                >
                     <img
                         src='/github.svg'
                         alt='Github'
