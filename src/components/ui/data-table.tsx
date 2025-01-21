@@ -123,7 +123,37 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
 
     return (
         <div>
-            <div className='flex justify-end mb-4'>
+            <div className='flex items-center justify-between mb-4'>
+                <div className='flex items-center gap-2'>
+                    <p className='text-sm text-muted-foreground'>Tampilkan</p>
+                    <Select
+                        value={`${table.getState().pagination.pageSize}`}
+                        onValueChange={value => {
+                            table.setPageSize(Number(value))
+                        }}
+                    >
+                        <SelectTrigger className='h-8 w-[70px] border-muted-foreground'>
+                            <SelectValue
+                                placeholder={
+                                    table.getState().pagination.pageSize
+                                }
+                            />
+                        </SelectTrigger>
+                        <SelectContent side='top'>
+                            {[5, 10, 20, 30, 40, 50].map(pageSize => (
+                                <SelectItem
+                                    key={pageSize}
+                                    value={`${pageSize}`}
+                                >
+                                    {pageSize}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    <p className='text-sm text-muted-foreground'>
+                        data per halaman
+                    </p>
+                </div>
                 <div className='relative w-64'>
                     <Search className='absolute left-2 top-2.5 h-4 w-4 text-muted-foreground' />
                     <Input
@@ -241,35 +271,18 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
                 </Table>
             </div>
             <div className='flex items-center justify-between py-4'>
-                <div className='flex items-center gap-2'>
-                    <p className='text-sm text-muted-foreground'>Tampilkan</p>
-                    <Select
-                        value={`${table.getState().pagination.pageSize}`}
-                        onValueChange={value => {
-                            table.setPageSize(Number(value))
-                        }}
-                    >
-                        <SelectTrigger className='h-8 w-[70px] border-muted-foreground'>
-                            <SelectValue
-                                placeholder={
-                                    table.getState().pagination.pageSize
-                                }
-                            />
-                        </SelectTrigger>
-                        <SelectContent side='top'>
-                            {[5, 10, 20, 30, 40, 50].map(pageSize => (
-                                <SelectItem
-                                    key={pageSize}
-                                    value={`${pageSize}`}
-                                >
-                                    {pageSize}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
-                    <p className='text-sm text-muted-foreground'>
-                        data per halaman
-                    </p>
+                <div className='text-sm text-muted-foreground'>
+                    Menampilkan{' '}
+                    {table.getState().pagination.pageSize *
+                        table.getState().pagination.pageIndex +
+                        1}
+                    -
+                    {Math.min(
+                        table.getState().pagination.pageSize *
+                            (table.getState().pagination.pageIndex + 1),
+                        table.getFilteredRowModel().rows.length
+                    )}{' '}
+                    dari {table.getFilteredRowModel().rows.length} data
                 </div>
                 <div className='flex items-center space-x-2'>
                     <Button
