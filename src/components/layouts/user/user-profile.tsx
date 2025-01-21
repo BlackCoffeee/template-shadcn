@@ -14,6 +14,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Link } from 'react-router-dom'
 
 export function UserProfile() {
     // TODO: Ganti dengan data user yang sebenarnya
@@ -52,11 +53,17 @@ export function UserProfile() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <Link to='/account/profile'>Profile</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <Link to='/account/settings'>Settings</Link>
+                    </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Log out</DropdownMenuItem>
+                <DropdownMenuItem>
+                    <Link to='/logout'>Log out</Link>
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )
