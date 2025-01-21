@@ -17,7 +17,7 @@ const Register: React.FC = () => {
             <div className='w-full px-4 py-8 mx-auto overflow-y-auto sm:w-[450px]'>
                 <div className='flex flex-col space-y-2 text-center'>
                     <img
-                        src='/logo.png'
+                        src='/logo.svg'
                         alt='Logo'
                         className='mx-auto h-12 w-12'
                     />
