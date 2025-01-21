@@ -130,7 +130,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
                         placeholder='Cari...'
                         value={globalFilter ?? ''}
                         onChange={e => setGlobalFilter(e.target.value)}
-                        className='pl-8'
+                        className='pl-8 border-muted-foreground'
                     />
                     {globalFilter && (
                         <Button
@@ -249,7 +249,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
                             table.setPageSize(Number(value))
                         }}
                     >
-                        <SelectTrigger className='h-8 w-[70px]'>
+                        <SelectTrigger className='h-8 w-[70px] border-muted-foreground'>
                             <SelectValue
                                 placeholder={
                                     table.getState().pagination.pageSize
