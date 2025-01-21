@@ -38,22 +38,26 @@ import {
     ChevronsRight,
     ChevronLeft,
     ChevronRight,
+    X,
 } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Input } from '@/components/ui/input'
 
-interface DataTableProps<TData, TValue> {
-    columns: ColumnDef<TData, TValue>[]
+// Gunakan type intersection untuk custom column definition
+type CustomColumnDef<T> = ColumnDef<T, unknown> & {
+    cellClassName?: string
+    headerClassName?: string
+}
+
+interface DataTableProps<TData> {
+    columns: CustomColumnDef<TData>[]
     data: TData[]
 }
 
-export function DataTable<TData, TValue>({
-    columns,
-    data,
-}: DataTableProps<TData, TValue>) {
+export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
     const [sorting, setSorting] = useState<SortingState>([])
-    const [globalFilter, setGlobalFilter] = useState('')
+    const [globalFilter, setGlobalFilter] = useState<string>('')
 
     const table = useReactTable({
         data,
@@ -128,6 +132,15 @@ export function DataTable<TData, TValue>({
                         onChange={e => setGlobalFilter(e.target.value)}
                         className='pl-8'
                     />
+                    {globalFilter && (
+                        <Button
+                            variant='ghost'
+                            onClick={() => setGlobalFilter('')}
+                            className='absolute right-0 top-0 h-full px-3 hover:bg-transparent'
+                        >
+                            <X className='h-4 w-4' />
+                        </Button>
+                    )}
                 </div>
             </div>
 
@@ -138,16 +151,37 @@ export function DataTable<TData, TValue>({
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map(header => (
                                     <TableHead
-                                        className='border-b border-foreground/50 text-foreground h-12'
+                                        className={cn(
+                                            'border-b border-foreground/50 text-foreground h-12',
+                                            (
+                                                header.column
+                                                    .columnDef as CustomColumnDef<TData>
+                                            ).headerClassName
+                                        )}
                                         key={header.id}
                                     >
                                         {header.isPlaceholder ? null : (
                                             <div
-                                                className={
+                                                className={cn(
                                                     header.column.getCanSort()
                                                         ? 'cursor-pointer select-none flex items-center gap-1'
-                                                        : ''
-                                                }
+                                                        : '',
+                                                    'flex items-center',
+                                                    (
+                                                        header.column
+                                                            .columnDef as CustomColumnDef<TData>
+                                                    ).headerClassName ===
+                                                        'text-center'
+                                                        ? 'justify-center'
+                                                        : (
+                                                                header.column
+                                                                    .columnDef as CustomColumnDef<TData>
+                                                            )
+                                                                .headerClassName ===
+                                                            'text-right'
+                                                          ? 'justify-end'
+                                                          : 'justify-start'
+                                                )}
                                                 onClick={header.column.getToggleSortingHandler()}
                                             >
                                                 {flexRender(
@@ -176,7 +210,13 @@ export function DataTable<TData, TValue>({
                                 >
                                     {row.getVisibleCells().map(cell => (
                                         <TableCell
-                                            className='border-b border-foreground/50 text-muted-foreground'
+                                            className={cn(
+                                                'border-b border-foreground/50 text-muted-foreground',
+                                                (
+                                                    cell.column
+                                                        .columnDef as CustomColumnDef<TData>
+                                                ).cellClassName
+                                            )}
                                             key={cell.id}
                                         >
                                             {flexRender(
