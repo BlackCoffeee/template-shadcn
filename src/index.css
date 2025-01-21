@@ -70,3 +70,8 @@
         @apply font-sans antialiased bg-background text-foreground;
     }
 }
+
+/* Menggunakan warna primary untuk focus state pada semua input */
+input:focus {
+    border-color: hsl(var(--primary));
+}
