@@ -13,6 +13,8 @@ import {
     ForgotPassword,
     Profile,
     DataTablesPage,
+    Page404,
+    Page500,
 } from '@/pages'
 
 export function AppRouter() {
@@ -22,18 +24,6 @@ export function AppRouter() {
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/account/profile' element={<Profile />} />
                 <Route path='/ui/data-tables' element={<DataTablesPage />} />
-                <Route
-                    path='/account/profile/projects'
-                    element={<div>Projects Page</div>}
-                />
-                <Route
-                    path='/account/profile/connections'
-                    element={<div>Connections Page</div>}
-                />
-                <Route path='/project' element={<div>Project Page</div>} />
-                <Route path='/marketing' element={<div>Marketing Page</div>} />
-
-                {/* Tambahkan route lainnya sesuai kebutuhan */}
             </Route>
             <Route path='/pages/auth/login' element={<Login />} />
             <Route
@@ -41,6 +31,8 @@ export function AppRouter() {
                 element={<ForgotPassword />}
             />
             <Route path='/pages/auth/register' element={<Register />} />
+            <Route path='/pages/error/404' element={<Page404 />} />
+            <Route path='/pages/error/500' element={<Page500 />} />
         </Routes>
     )
 }
