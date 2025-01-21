@@ -4,12 +4,14 @@
  * @createAt 2025-01-18
  */
 
-import { KeyRound, LayoutGrid, LucideIcon } from 'lucide-react'
 import {
+    KeyRound,
+    LayoutGrid,
+    LucideIcon,
+    ShieldX,
     Home,
     HelpCircle,
     LayoutDashboard,
-    Settings,
     Users,
 } from 'lucide-react'
 
@@ -47,17 +49,17 @@ export const menuItems: MenuItem[] = [
                 ],
             },
             {
-                title: 'Settings',
-                href: '/pages/settings',
-                icon: Settings,
+                title: 'Error',
+                href: '/pages/error',
+                icon: ShieldX,
                 children: [
                     {
-                        title: 'General',
-                        href: '/pages/settings/general',
+                        title: '404',
+                        href: '/pages/error/404',
                     },
                     {
-                        title: 'Security',
-                        href: '/pages/settings/security',
+                        title: '500',
+                        href: '/pages/error/500',
                     },
                 ],
             },
