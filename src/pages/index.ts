@@ -10,4 +10,6 @@ export { default as Register } from './authentication/Register'
 export { default as ForgotPassword } from './authentication/ForgotPassword'
 export { default as Profile } from './account/Profile'
 export { default as DataTablesPage } from './Ui-Component/Data-tables'
+export { default as Page404 } from './error/Page-404'
+export { default as Page500 } from './error/Page-500'
 // export komponen halaman lainnya di sini
