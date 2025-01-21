@@ -2,7 +2,7 @@
  * Data Table Component
  * @author Muhammad Arif <https://github.com/BlackCoffeee>
  * @createAt 2024-03-20
- * @description Komponen tabel yang dapat digunakan kembali dengan fitur striped dan navigasi
+ * @description Komponen tabel yang dapat digunakan kembali dengan fitur striped, navigasi, dan pencarian
  */
 
 import {
@@ -13,6 +13,7 @@ import {
     getSortedRowModel,
     SortingState,
     useReactTable,
+    getFilteredRowModel,
 } from '@tanstack/react-table'
 import {
     Table,
@@ -30,9 +31,17 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select'
-import { ArrowUpDown } from 'lucide-react'
+import {
+    ArrowUpDown,
+    Search,
+    ChevronsLeft,
+    ChevronsRight,
+    ChevronLeft,
+    ChevronRight,
+} from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { Input } from '@/components/ui/input'
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -44,6 +53,7 @@ export function DataTable<TData, TValue>({
     data,
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = useState<SortingState>([])
+    const [globalFilter, setGlobalFilter] = useState('')
 
     const table = useReactTable({
         data,
@@ -51,9 +61,12 @@ export function DataTable<TData, TValue>({
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
         onSortingChange: setSorting,
+        onGlobalFilterChange: setGlobalFilter,
         state: {
             sorting,
+            globalFilter,
         },
         initialState: {
             pagination: {
@@ -106,6 +119,18 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
+            <div className='flex justify-end mb-4'>
+                <div className='relative w-64'>
+                    <Search className='absolute left-2 top-2.5 h-4 w-4 text-muted-foreground' />
+                    <Input
+                        placeholder='Cari...'
+                        value={globalFilter ?? ''}
+                        onChange={e => setGlobalFilter(e.target.value)}
+                        className='pl-8'
+                    />
+                </div>
+            </div>
+
             <div className='rounded-md border border-none'>
                 <Table>
                     <TableHeader>
@@ -209,11 +234,19 @@ export function DataTable<TData, TValue>({
                 <div className='flex items-center space-x-2'>
                     <Button
                         variant='ghost'
-                        size='sm'
+                        size='icon'
+                        onClick={() => table.setPageIndex(0)}
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        <ChevronsLeft className='h-4 w-4' />
+                    </Button>
+                    <Button
+                        variant='ghost'
+                        size='icon'
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                     >
-                        Sebelumnya
+                        <ChevronLeft className='h-4 w-4' />
                     </Button>
                     {generatePaginationNumbers().map((pageNumber, idx) => (
                         <Button
@@ -242,11 +275,21 @@ export function DataTable<TData, TValue>({
                     ))}
                     <Button
                         variant='ghost'
-                        size='sm'
+                        size='icon'
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                     >
-                        Selanjutnya
+                        <ChevronRight className='h-4 w-4' />
+                    </Button>
+                    <Button
+                        variant='ghost'
+                        size='icon'
+                        onClick={() =>
+                            table.setPageIndex(table.getPageCount() - 1)
+                        }
+                        disabled={!table.getCanNextPage()}
+                    >
+                        <ChevronsRight className='h-4 w-4' />
                     </Button>
                 </div>
             </div>
