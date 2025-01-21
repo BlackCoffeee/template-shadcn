@@ -39,7 +39,12 @@ export function NavigationMenuItemWithChildren({
                 )}
             >
                 {level > 0 && (
-                    <Circle className='h-1.5 w-1.5 text-foreground' />
+                    <Circle
+                        className={cn(
+                            'h-1.5 w-1.5 text-foreground',
+                            isActive ? 'text-primary' : 'text-foreground'
+                        )}
+                    />
                 )}
                 {item.icon && (
                     <item.icon
