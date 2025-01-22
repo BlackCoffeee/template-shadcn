@@ -4,8 +4,8 @@
  * @createAt 2025-01-22
  */
 
-import { ProfileAbout } from '../profile-about'
-import { ProfileTimeline } from '../profile-timeline'
+import { ProfileAbout } from './profile/profile-about'
+import { ProfileTimeline } from './profile/profile-timeline'
 
 const TabProfile = () => {
     return (
