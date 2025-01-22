@@ -39,7 +39,7 @@ export function ProfileAbout() {
     return (
         <div>
             <Card>
-                <CardHeader>
+                <CardHeader className='py-[27px]'>
                     <CardTitle className='text-sm text-muted-foreground'>
                         ABOUT
                     </CardTitle>
