@@ -16,7 +16,7 @@ import {
     Star,
     User,
 } from 'lucide-react'
-import { ThreadsIcon } from '../../../icons/threads-icon'
+import { ThreadsIcon } from '@/components/icons/threads-icon'
 
 export function ProfileAbout() {
     // TODO: Ganti dengan data user yang sebenarnya
