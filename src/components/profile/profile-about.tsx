@@ -1,74 +1,149 @@
 /**
  * Komponen informasi detail profil pengguna
  * @author Muhammad Arif <https://github.com/BlackCoffeee>
- * @createAt 2024-03-20
+ * @createAt 2025-01-21
  */
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Star, Globe2, Languages } from 'lucide-react'
+import {
+    Check,
+    Flag,
+    Github,
+    Languages,
+    Linkedin,
+    Mail,
+    Phone,
+    Star,
+    User,
+} from 'lucide-react'
+import { ThreadsIcon } from '../icons/threads-icon'
 
 export function ProfileAbout() {
     // TODO: Ganti dengan data user yang sebenarnya
     const user = {
-        fullName: 'John Doe',
+        fullName: 'Muhammad Arif',
         status: 'Active',
-        role: 'Developer',
-        country: 'USA',
-        languages: 'English',
+        role: 'Full Stack Developer',
+        country: 'Indonesia',
+        languages: 'Indonesia',
+    }
+
+    const contact = {
+        email: 'arif@unism.ac.id',
+        phone: '+62 81234567890',
+        threads: '@arifmuhammad.dev',
+        github: 'BlackCoffeee',
+        linkedin: 'budiman-arif',
     }
 
     return (
-        <Card>
-            <CardHeader>
-                <CardTitle className='text-base'>ABOUT</CardTitle>
-            </CardHeader>
-            <CardContent className='space-y-4'>
-                <div className='flex items-center gap-2'>
-                    <Star className='h-4 w-4 text-muted-foreground' />
-                    <div>
-                        <div className='font-medium'>Full Name:</div>
-                        <div className='text-sm text-muted-foreground'>
-                            {user.fullName}
+        <div>
+            <Card>
+                <CardHeader>
+                    <CardTitle className='text-sm text-muted-foreground'>
+                        ABOUT
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className='space-y-4'>
+                    <div className='flex items-center gap-2'>
+                        <User className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Full Name:{' '}
+                            <span className=' text-foreground'>
+                                {user.fullName}
+                            </span>
                         </div>
                     </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <Star className='h-4 w-4 text-muted-foreground' />
-                    <div>
-                        <div className='font-medium'>Status:</div>
-                        <div className='text-sm text-muted-foreground'>
-                            {user.status}
+                    <div className='flex items-center gap-2'>
+                        <Check className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Status:{' '}
+                            <span className=' text-foreground'>
+                                {user.status}
+                            </span>
                         </div>
                     </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <Star className='h-4 w-4 text-muted-foreground' />
-                    <div>
-                        <div className='font-medium'>Role:</div>
-                        <div className='text-sm text-muted-foreground'>
-                            {user.role}
+                    <div className='flex items-center gap-2'>
+                        <Star className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Role:{' '}
+                            <span className=' text-foreground'>
+                                {user.role}
+                            </span>
                         </div>
                     </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <Globe2 className='h-4 w-4 text-muted-foreground' />
-                    <div>
-                        <div className='font-medium'>Country:</div>
-                        <div className='text-sm text-muted-foreground'>
-                            {user.country}
+                    <div className='flex items-center gap-2'>
+                        <Flag className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Country:{' '}
+                            <span className=' text-foreground'>
+                                {user.country}
+                            </span>
                         </div>
                     </div>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <Languages className='h-4 w-4 text-muted-foreground' />
-                    <div>
-                        <div className='font-medium'>Languages:</div>
-                        <div className='text-sm text-muted-foreground'>
-                            {user.languages}
+                    <div className='flex items-center gap-2'>
+                        <Languages className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Languages:{' '}
+                            <span className=' text-foreground'>
+                                {user.languages}
+                            </span>
                         </div>
                     </div>
-                </div>
-            </CardContent>
-        </Card>
+                </CardContent>
+                <CardHeader>
+                    <CardTitle className='text-sm text-muted-foreground'>
+                        Contact
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className='space-y-4'>
+                    <div className='flex items-center gap-2'>
+                        <Mail className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Email:{' '}
+                            <span className=' text-foreground'>
+                                {contact.email}
+                            </span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <Phone className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Phone:{' '}
+                            <span className=' text-foreground'>
+                                {contact.phone}
+                            </span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <ThreadsIcon className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Threads:{' '}
+                            <span className=' text-foreground'>
+                                {contact.threads}
+                            </span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <Github className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Github:{' '}
+                            <span className=' text-foreground'>
+                                {contact.github}
+                            </span>
+                        </div>
+                    </div>
+                    <div className='flex items-center gap-2'>
+                        <Linkedin className='w-4 h-4 text-foreground' />
+                        <div className='font-medium text-foreground'>
+                            Linkedin:{' '}
+                            <span className=' text-foreground'>
+                                {contact.linkedin}
+                            </span>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
     )
 }

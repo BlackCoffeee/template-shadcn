@@ -5,18 +5,17 @@
  */
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import { ProfileTimeline } from './profile-timeline'
-import { ProfileAbout } from './profile-about'
+import TabProfile from './tabs/tab-profile'
 
 export function ProfileTabs() {
     return (
-        <Tabs defaultValue='about' className='w-full'>
+        <Tabs defaultValue='TabProfile' className='w-full'>
             <TabsList className='grid w-full grid-cols-2 bg-background'>
                 <TabsTrigger
                     className='data-[state=active]:bg-primary/10 data-[state=active]:text-primary'
-                    value='about'
+                    value='TabProfile'
                 >
-                    About
+                    Profile
                 </TabsTrigger>
                 <TabsTrigger
                     className='data-[state=active]:bg-primary/10 data-[state=active]:text-primary'
@@ -25,12 +24,10 @@ export function ProfileTabs() {
                     Timeline
                 </TabsTrigger>
             </TabsList>
-            <TabsContent value='about'>
-                <ProfileAbout />
+            <TabsContent value='TabProfile'>
+                <TabProfile />
             </TabsContent>
-            <TabsContent value='timeline'>
-                <ProfileTimeline />
-            </TabsContent>
+            <TabsContent value='timeline'></TabsContent>
         </Tabs>
     )
 }
