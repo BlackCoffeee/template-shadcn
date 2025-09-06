@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import config from '@/config'
+import { Badge } from '../ui/badge'
+import { config } from '../../config'
 
 export const VersionInfo: React.FC = () => {
     return (
@@ -29,7 +29,7 @@ export const VersionInfo: React.FC = () => {
                 </div>
                 <div className='flex justify-between'>
                     <span className='text-sm font-medium'>API Base URL:</span>
-                    <span className='font-mono text-xs text-sm'>
+                    <span className='font-mono text-xs'>
                         {config.api.baseUrl}
                     </span>
                 </div>

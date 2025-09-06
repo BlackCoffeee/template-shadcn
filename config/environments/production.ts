@@ -9,7 +9,7 @@ export const productionConfig = {
         timeout: 20000,
     },
     auth: {
-        secret: process.env.VITE_AUTH_SECRET || 'production-secret-key',
+        secret: import.meta.env.VITE_AUTH_SECRET || 'production-secret-key',
         jwtExpiresIn: '1d',
     },
     features: {

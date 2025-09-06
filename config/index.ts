@@ -4,7 +4,10 @@ import { productionConfig } from './environments/production'
 
 export type Environment = 'development' | 'staging' | 'production'
 
-export type AppConfig = typeof developmentConfig
+export type AppConfig =
+    | typeof developmentConfig
+    | typeof stagingConfig
+    | typeof productionConfig
 
 const getEnvironment = (): Environment => {
     const env = import.meta.env.VITE_APP_ENVIRONMENT || import.meta.env.MODE

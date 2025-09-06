@@ -9,7 +9,7 @@ export const developmentConfig = {
         timeout: 10000,
     },
     auth: {
-        secret: process.env.VITE_AUTH_SECRET || 'dev-secret-key',
+        secret: import.meta.env.VITE_AUTH_SECRET || 'dev-secret-key',
         jwtExpiresIn: '7d',
     },
     features: {

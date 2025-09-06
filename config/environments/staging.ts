@@ -9,7 +9,7 @@ export const stagingConfig = {
         timeout: 15000,
     },
     auth: {
-        secret: process.env.VITE_AUTH_SECRET || 'staging-secret-key',
+        secret: import.meta.env.VITE_AUTH_SECRET || 'staging-secret-key',
         jwtExpiresIn: '3d',
     },
     features: {
