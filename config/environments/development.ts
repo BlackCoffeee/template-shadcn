@@ -1,7 +1,7 @@
 export const developmentConfig = {
     app: {
-        name: 'Template Shadcn',
-        version: '1.0.0',
+        name: 'Template Shadcn v2',
+        version: '2.0.0-dev',
         environment: 'development',
     },
     api: {

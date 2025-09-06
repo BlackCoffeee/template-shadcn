@@ -1,6 +1,6 @@
 export const stagingConfig = {
     app: {
-        name: 'Template Shadcn',
+        name: 'Template Shadcn v2',
         version: '2.0.0-beta',
         environment: 'staging',
     },

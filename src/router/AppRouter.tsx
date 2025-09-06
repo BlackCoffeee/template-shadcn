@@ -16,6 +16,7 @@ import {
     Page404,
     Page500,
 } from '@/pages'
+import { V2Demo } from '@/pages/v2/V2Demo'
 
 export function AppRouter() {
     return (
@@ -24,6 +25,7 @@ export function AppRouter() {
                 <Route path='/' element={<Dashboard />} />
                 <Route path='/account/profile' element={<Profile />} />
                 <Route path='/ui/data-tables' element={<DataTablesPage />} />
+                <Route path='/v2/demo' element={<V2Demo />} />
             </Route>
             <Route path='/pages/auth/login' element={<Login />} />
             <Route
