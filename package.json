@@ -4,10 +4,14 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "tsc -b && vite build",
+        "dev": "vite --config vite.config.development.ts",
+        "dev:staging": "vite --config vite.config.staging.ts --mode staging",
+        "build": "tsc -b && vite build --config vite.config.production.ts",
+        "build:staging": "tsc -b && vite build --config vite.config.staging.ts --mode staging",
+        "build:dev": "tsc -b && vite build --config vite.config.development.ts --mode development",
         "lint": "eslint .",
         "preview": "vite preview",
+        "preview:staging": "vite preview --config vite.config.staging.ts",
         "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\"",
         "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,css,md,json}\""
     },
