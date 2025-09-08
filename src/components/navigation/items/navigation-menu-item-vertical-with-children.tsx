@@ -49,7 +49,7 @@ export function NavigationMenuItemWithChildren({
                 {item.icon && (
                     <item.icon
                         className={cn(
-                            'h-4 w-4',
+                            'h-4 w-4 flex-shrink-0',
                             isActive ? 'text-primary' : 'text-foreground'
                         )}
                     />
@@ -79,7 +79,7 @@ export function NavigationMenuItemWithChildren({
                     {item.icon && (
                         <item.icon
                             className={cn(
-                                'h-4 w-4',
+                                'h-4 w-4 flex-shrink-0',
                                 isActive ? 'text-primary' : 'text-foreground'
                             )}
                         />
