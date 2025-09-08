@@ -42,7 +42,7 @@ export function NavigationMenuVertical() {
                 <Logo className='transition-all duration-300' />
             </div>
 
-            <div className='flex flex-col gap-2 px-2'>
+            <div className='flex flex-col gap-2 px-3 py-2'>
                 <nav className='flex flex-col gap-1'>{renderMenuItems()}</nav>
             </div>
         </div>

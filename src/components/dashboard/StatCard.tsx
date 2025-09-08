@@ -40,8 +40,8 @@ export const StatCard = ({
                             <span
                                 className={
                                     trend.isPositive
-                                        ? 'text-green-500'
-                                        : 'text-red-500'
+                                        ? 'text-chart-1'
+                                        : 'text-destructive'
                                 }
                             >
                                 {trend.isPositive ? '+' : '-'}

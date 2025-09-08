@@ -89,20 +89,21 @@ export function NavigationMenuItemHorizontalWithChildren({
         <DropdownMenu>
             <DropdownMenuTrigger
                 className={cn(
-                    'flex items-center gap-2 px-3 py-2 rounded-md hover:bg-accent/50',
+                    'flex items-center gap-2 px-2 py-2 rounded-md hover:bg-accent/50 whitespace-nowrap',
                     isActive && 'text-primary'
                 )}
             >
                 {item.icon && (
                     <item.icon
                         className={cn(
-                            'h-4 w-4',
+                            'h-4 w-4 flex-shrink-0',
                             isActive ? 'text-primary' : 'text-foreground'
                         )}
                     />
                 )}
                 <span
                     className={cn(
+                        'text-sm',
                         isActive
                             ? 'text-primary font-medium'
                             : 'text-foreground'
@@ -110,7 +111,7 @@ export function NavigationMenuItemHorizontalWithChildren({
                 >
                     {item.title}
                 </span>
-                <ChevronDown className='h-4 w-4' />
+                <ChevronDown className='h-4 w-4 flex-shrink-0' />
             </DropdownMenuTrigger>
             <DropdownMenuContent align='start' className='min-w-[200px]'>
                 {item.children && renderMenuItems(item.children)}

@@ -22,24 +22,22 @@ export function Header({ className }: HeaderProps) {
 
     return (
         <header className={cn('w-full', className)}>
-            <div className='container flex h-14 items-center px-4'>
-                <div className='mr-4 flex items-center gap-2'>
+            <div className='flex items-center w-full h-14 px-4'>
+                <div className='flex gap-2 items-center'>
                     <NavigationMobileTrigger>
                         <NavigationMobileMenu />
                     </NavigationMobileTrigger>
                     <NavigationCollapseButton />
                 </div>
                 {orientation === 'horizontal' && (
-                    <div className='hidden md:block flex-1'>
+                    <div className='hidden flex-1 md:block'>
                         <NavigationMenu />
                     </div>
                 )}
-                <div className='flex flex-1 items-center justify-end space-x-4'>
-                    <nav className='flex items-center gap-4'>
-                        <NavigationSettings />
-                        <ThemeToggle />
-                        <UserProfile />
-                    </nav>
+                <div className='flex items-center ml-auto'>
+                    <NavigationSettings />
+                    <ThemeToggle />
+                    <UserProfile />
                 </div>
             </div>
         </header>

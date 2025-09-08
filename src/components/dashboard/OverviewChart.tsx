@@ -106,16 +106,16 @@ export const OverviewChart = () => {
                         <Area
                             type='monotone'
                             dataKey='pendapatan'
-                            stroke='#22c55e'
-                            fill='#22c55e'
+                            stroke='hsl(var(--chart-1))'
+                            fill='hsl(var(--chart-1))'
                             fillOpacity={0.2}
                             strokeWidth={2}
                         />
                         <Area
                             type='monotone'
                             dataKey='pengeluaran'
-                            stroke='#ef4444'
-                            fill='#ef4444'
+                            stroke='hsl(var(--destructive))'
+                            fill='hsl(var(--destructive))'
                             fillOpacity={0.2}
                             strokeWidth={2}
                         />

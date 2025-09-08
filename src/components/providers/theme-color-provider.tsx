@@ -20,7 +20,7 @@ export function ThemeColorProvider({ children }: ThemeColorProviderProps) {
             /hsl\((\d+\.?\d*),\s*(\d+\.?\d*)%,\s*(\d+\.?\d*)%\)/
         )
         if (hslMatch) {
-            const [_, h, s, l] = hslMatch
+            const [, h, s, l] = hslMatch
             document.documentElement.style.setProperty(
                 '--primary',
                 `${h} ${s}% ${l}%`

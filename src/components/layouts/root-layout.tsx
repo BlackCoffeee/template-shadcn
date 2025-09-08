@@ -33,11 +33,11 @@ export function RootLayout() {
                 {orientation === 'vertical' && (
                     <aside
                         className={cn(
-                            'hidden md:block fixed left-0 top-0 h-screen transition-all duration-300 bg-background border-r',
+                            'hidden md:block fixed left-0 top-0 h-screen transition-all duration-300 bg-background border-r border-foreground/10',
                             collapsed ? 'w-16' : 'w-64'
                         )}
                     >
-                        <div className='h-full border-r border-foreground/10'>
+                        <div className='h-full'>
                             <NavigationMenu />
                         </div>
                     </aside>
@@ -47,10 +47,18 @@ export function RootLayout() {
                     className={cn(
                         'flex-1 flex flex-col min-h-[calc(100vh-3.5rem)] bg-page',
                         orientation === 'vertical' &&
-                            (collapsed ? 'md:ml-16' : 'md:ml-64')
+                            (collapsed ? 'md:ml-20' : 'md:ml-72'),
+                        orientation === 'horizontal' && 'px-4'
                     )}
                 >
-                    <div className='container flex-1 py-6 space-y-4'>
+                    <div
+                        className={cn(
+                            'flex-1 py-6 space-y-4',
+                            orientation === 'horizontal'
+                                ? 'container mx-auto'
+                                : 'container px-6'
+                        )}
+                    >
                         <Outlet />
                     </div>
                     <Footer />

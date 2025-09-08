@@ -12,7 +12,7 @@ export interface LogoProps {
 }
 
 export function Logo({ className }: LogoProps) {
-    const { collapsed } = useNavigationStore()
+    const { collapsed, orientation } = useNavigationStore()
 
     return (
         <a className={cn('inline-flex items-center', className)} href='/'>
@@ -27,7 +27,8 @@ export function Logo({ className }: LogoProps) {
             <span
                 className={cn(
                     'ml-2 font-bold text-xl transition-all duration-300',
-                    collapsed && 'hidden'
+                    collapsed && 'hidden',
+                    orientation === 'horizontal' && 'ml-3'
                 )}
             >
                 {import.meta.env.VITE_APP_NAME}
