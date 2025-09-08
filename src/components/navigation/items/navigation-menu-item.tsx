@@ -19,7 +19,10 @@ export function NavigationMenuItem({ item }: NavigationMenuItemProps) {
     return (
         <Link
             to={item.href}
-            className='flex items-center gap-2 px-3 py-2 rounded-md hover:bg-accent/50 whitespace-nowrap'
+            className={cn(
+                'flex items-center gap-2 px-3 py-1.5 h-8 rounded-md hover:bg-accent/50 whitespace-nowrap',
+                isActive && 'bg-accent text-accent-foreground'
+            )}
         >
             {item.icon && (
                 <item.icon

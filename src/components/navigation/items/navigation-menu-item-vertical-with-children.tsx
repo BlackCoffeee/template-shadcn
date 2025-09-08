@@ -26,7 +26,9 @@ export function NavigationMenuItemWithChildren({
 }: NavigationMenuItemWithChildrenProps) {
     const location = useLocation()
     const [isOpen, setIsOpen] = useState(false)
+
     const isActive = location.pathname.startsWith(item.href)
+
     const hasChildren = item.children && item.children.length > 0
 
     if (!hasChildren) {
@@ -34,8 +36,9 @@ export function NavigationMenuItemWithChildren({
             <Link
                 to={item.href}
                 className={cn(
-                    'flex items-center gap-2 px-3 py-2 rounded-md hover:bg-accent/50',
-                    level > 0 && 'ml-4'
+                    'flex items-center gap-2 px-3 py-1.5 h-8 rounded-md hover:bg-accent/50',
+                    level > 0 && 'ml-4',
+                    isActive && 'bg-accent text-accent-foreground'
                 )}
             >
                 {level > 0 && (
@@ -56,6 +59,7 @@ export function NavigationMenuItemWithChildren({
                 )}
                 <span
                     className={cn(
+                        'text-sm',
                         isActive
                             ? 'text-primary font-medium'
                             : 'text-foreground'
@@ -71,8 +75,9 @@ export function NavigationMenuItemWithChildren({
         <Collapsible open={isOpen} onOpenChange={setIsOpen}>
             <CollapsibleTrigger
                 className={cn(
-                    'flex w-full items-center justify-between px-3 py-2 rounded-md hover:bg-accent/50',
-                    level > 0 && 'ml-4'
+                    'flex w-full items-center justify-between px-3 py-1.5 h-8 rounded-md hover:bg-accent/50',
+                    level > 0 && 'ml-4',
+                    isActive && 'bg-accent text-accent-foreground'
                 )}
             >
                 <div className='flex items-center gap-2'>
@@ -86,6 +91,7 @@ export function NavigationMenuItemWithChildren({
                     )}
                     <span
                         className={cn(
+                            'text-sm',
                             isActive
                                 ? 'text-primary font-medium'
                                 : 'text-foreground'
@@ -101,7 +107,7 @@ export function NavigationMenuItemWithChildren({
                     )}
                 />
             </CollapsibleTrigger>
-            <CollapsibleContent>
+            <CollapsibleContent className='ml-2 border-l border-border/20 mt-1'>
                 {item.children?.map(child => (
                     <NavigationMenuItemWithChildren
                         key={child.href}

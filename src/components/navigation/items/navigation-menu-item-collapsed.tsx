@@ -85,7 +85,10 @@ export function NavigationMenuItemCollapsed({
                 <TooltipTrigger asChild>
                     <Link
                         to={item.href}
-                        className='flex items-center justify-center h-10 w-10 rounded-md hover:bg-accent/50'
+                        className={cn(
+                            'flex items-center justify-center h-10 w-10 rounded-md hover:bg-accent/50',
+                            isActive && 'bg-accent text-accent-foreground'
+                        )}
                     >
                         {item.icon && (
                             <item.icon
@@ -109,7 +112,12 @@ export function NavigationMenuItemCollapsed({
             <Tooltip delayDuration={0}>
                 <TooltipTrigger asChild>
                     <DropdownMenuTrigger asChild>
-                        <button className='flex items-center justify-center h-10 w-10 rounded-md hover:bg-accent/50'>
+                        <button
+                            className={cn(
+                                'flex items-center justify-center h-10 w-10 rounded-md hover:bg-accent/50',
+                                isActive && 'bg-accent text-accent-foreground'
+                            )}
+                        >
                             {item.icon && (
                                 <item.icon
                                     className={cn(

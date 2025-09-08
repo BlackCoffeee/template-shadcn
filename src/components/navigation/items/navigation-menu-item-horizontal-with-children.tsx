@@ -89,8 +89,8 @@ export function NavigationMenuItemHorizontalWithChildren({
         <DropdownMenu>
             <DropdownMenuTrigger
                 className={cn(
-                    'flex items-center gap-2 px-2 py-2 rounded-md hover:bg-accent/50 whitespace-nowrap',
-                    isActive && 'text-primary'
+                    'flex items-center gap-2 px-2 py-1.5 rounded-md hover:bg-accent/50 whitespace-nowrap',
+                    isActive && 'bg-accent text-accent-foreground'
                 )}
             >
                 {item.icon && (

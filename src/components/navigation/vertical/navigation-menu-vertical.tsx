@@ -35,7 +35,7 @@ export function NavigationMenuVertical() {
         <div className='flex flex-col h-full'>
             <div
                 className={cn(
-                    'flex items-center h-14 px-4',
+                    'flex items-center px-4 h-14',
                     collapsed ? 'justify-center' : 'justify-start'
                 )}
             >
@@ -43,7 +43,7 @@ export function NavigationMenuVertical() {
             </div>
 
             <div className='flex flex-col gap-2 px-3 py-2'>
-                <nav className='flex flex-col gap-1'>{renderMenuItems()}</nav>
+                <nav className='flex flex-col gap-2'>{renderMenuItems()}</nav>
             </div>
         </div>
     )
