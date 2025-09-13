@@ -14,12 +14,14 @@ Dokumentasi lengkap tersedia di folder `docs/` dengan struktur yang terorganisir
 - 💻 **[Development](./docs/development/)** - Panduan development
 - 🚀 **[Deployment](./docs/deployment/)** - Panduan deployment
 
-## ⚡ Quick Start
+## 📥 Cara Download & Install Template
+
+### 🎯 Metode 1: Clone dari GitHub (Recommended)
 
 ```bash
 # Clone repository
-git clone https://github.com/your-repo/template-shadcn.git
-cd template-shadcn
+git clone https://github.com/BlackCoffeee/template-shadcn.git my-app
+cd my-app
 
 # Install dependencies
 npm install
@@ -30,6 +32,74 @@ cp .env.example .env.local
 # Start development server
 npm run dev
 ```
+
+### 🎯 Metode 2: Download ZIP dari GitHub
+
+1. **Download ZIP File:**
+   - Kunjungi: https://github.com/BlackCoffeee/template-shadcn
+   - Klik tombol **"Code"** → **"Download ZIP"**
+   - Extract ZIP file ke folder yang diinginkan
+
+2. **Setup Project:**
+```bash
+# Masuk ke folder yang sudah di-extract
+cd template-shadcn-main
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env.local
+
+# Start development server
+npm run dev
+```
+
+### 🎯 Metode 3: Menggunakan GitHub Template (Coming Soon)
+
+```bash
+# Akan tersedia fitur "Use this template" di GitHub
+# Klik tombol "Use this template" di repository
+```
+
+### 🎯 Metode 4: Download Release Assets
+
+1. **Kunjungi Releases:**
+   - https://github.com/BlackCoffeee/template-shadcn/releases
+   - Download `Source code (zip)` atau `Source code (tar.gz)`
+
+2. **Setup Project:**
+```bash
+# Extract file yang didownload
+unzip template-shadcn-2.0.0.zip
+cd template-shadcn-2.0.0
+
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env.local
+
+# Start development server
+npm run dev
+```
+
+## ⚡ Quick Start
+
+Setelah download, ikuti langkah-langkah ini:
+
+```bash
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env.local
+
+# Start development server
+npm run dev
+```
+
+**🌐 Aplikasi akan berjalan di:** http://localhost:5173
 
 ## 🎯 Features
 
@@ -130,9 +200,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🆘 Support
 
 - 📖 [Documentation](./docs/README.md)
-- 🐛 [Report Bug](https://github.com/your-repo/template-shadcn/issues)
-- 💡 [Request Feature](https://github.com/your-repo/template-shadcn/issues)
-- 💬 [Discussions](https://github.com/your-repo/template-shadcn/discussions)
+- ⚡ [Quick Start Guide](./QUICK_START.md)
+- 📥 [Installation Guide](./INSTALLATION.md)
+- 🐛 [Report Bug](https://github.com/BlackCoffeee/template-shadcn/issues)
+- 💡 [Request Feature](https://github.com/BlackCoffeee/template-shadcn/issues)
+- 💬 [Discussions](https://github.com/BlackCoffeee/template-shadcn/discussions)
 
 ---
 
