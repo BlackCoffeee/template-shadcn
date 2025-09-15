@@ -11,6 +11,7 @@ Pastikan sistem Anda sudah memiliki:
 - **Git** (untuk clone repository)
 
 ### Cek Versi
+
 ```bash
 node --version    # Harus 18.0+
 npm --version     # Harus 9.0+
@@ -37,14 +38,15 @@ npm install
 **Keuntungan:** Tidak perlu Git, download langsung
 
 1. **Kunjungi Repository:**
-   - Buka: https://github.com/BlackCoffeee/template-shadcn
+    - Buka: https://github.com/BlackCoffeee/template-shadcn
 
 2. **Download ZIP:**
-   - Klik tombol **"Code"** (hijau)
-   - Pilih **"Download ZIP"**
-   - Extract ke folder yang diinginkan
+    - Klik tombol **"Code"** (hijau)
+    - Pilih **"Download ZIP"**
+    - Extract ke folder yang diinginkan
 
 3. **Setup Project:**
+
 ```bash
 # Masuk ke folder yang sudah di-extract
 cd template-shadcn-main
@@ -62,13 +64,14 @@ npm install
 **Keuntungan:** Mendapatkan versi stabil yang sudah ditest
 
 1. **Kunjungi Releases:**
-   - https://github.com/BlackCoffeee/template-shadcn/releases
-   - Pilih versi terbaru (v2.0.0)
+    - https://github.com/BlackCoffeee/template-shadcn/releases
+    - Pilih versi terbaru (v2.0.0)
 
 2. **Download Assets:**
-   - Download `Source code (zip)` atau `Source code (tar.gz)`
+    - Download `Source code (zip)` atau `Source code (tar.gz)`
 
 3. **Setup Project:**
+
 ```bash
 # Extract file
 unzip template-shadcn-2.0.0.zip
