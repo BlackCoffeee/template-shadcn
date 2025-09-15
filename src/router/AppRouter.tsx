@@ -23,6 +23,7 @@ export function AppRouter() {
         <Routes>
             <Route element={<RootLayout />}>
                 <Route path='/' element={<Dashboard />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/account/profile' element={<Profile />} />
                 <Route path='/ui/data-tables' element={<DataTablesPage />} />
                 <Route path='/v2/demo' element={<V2Demo />} />

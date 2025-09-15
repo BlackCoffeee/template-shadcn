@@ -15,6 +15,7 @@ Sebelum deployment, pastikan:
 ## 🏗️ Build Process
 
 ### Production Build
+
 ```bash
 # Build untuk production
 npm run build
@@ -27,6 +28,7 @@ npm run preview
 ```
 
 ### Build Optimization
+
 ```bash
 # Analyze bundle size
 npm run build:analyze
@@ -40,6 +42,7 @@ ls -la dist/
 ### 1. Vercel (Recommended)
 
 #### Setup
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -55,23 +58,27 @@ vercel --prod
 ```
 
 #### Configuration
+
 Create `vercel.json`:
+
 ```json
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist",
+    "framework": "vite",
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
 }
 ```
 
 #### Environment Variables
+
 Set di Vercel Dashboard:
+
 - `VITE_APP_NAME`
 - `VITE_API_BASE_URL`
 - `VITE_AUTH_SECRET`
@@ -79,6 +86,7 @@ Set di Vercel Dashboard:
 ### 2. Netlify
 
 #### Setup
+
 ```bash
 # Install Netlify CLI
 npm i -g netlify-cli
@@ -94,7 +102,9 @@ netlify deploy --prod
 ```
 
 #### Configuration
+
 Create `netlify.toml`:
+
 ```toml
 [build]
   command = "npm run build"
@@ -109,6 +119,7 @@ Create `netlify.toml`:
 ### 3. GitHub Pages
 
 #### Setup
+
 ```bash
 # Install gh-pages
 npm install --save-dev gh-pages
@@ -124,33 +135,36 @@ npm run deploy
 ```
 
 #### GitHub Actions
+
 Create `.github/workflows/deploy.yml`:
+
 ```yaml
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches: [ main ]
+    push:
+        branches: [main]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+            - run: npm install
+            - run: npm run build
+            - uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./dist
 ```
 
 ### 4. AWS S3 + CloudFront
 
 #### Setup
+
 ```bash
 # Install AWS CLI
 aws configure
@@ -166,45 +180,48 @@ aws cloudfront create-distribution --distribution-config file://cloudfront-confi
 ```
 
 #### Configuration
+
 Create `cloudfront-config.json`:
+
 ```json
 {
-  "CallerReference": "your-app-2024",
-  "Comment": "Your App Distribution",
-  "DefaultRootObject": "index.html",
-  "Origins": {
-    "Quantity": 1,
-    "Items": [
-      {
-        "Id": "S3-your-bucket-name",
-        "DomainName": "your-bucket-name.s3.amazonaws.com",
-        "S3OriginConfig": {
-          "OriginAccessIdentity": ""
-        }
-      }
-    ]
-  },
-  "DefaultCacheBehavior": {
-    "TargetOriginId": "S3-your-bucket-name",
-    "ViewerProtocolPolicy": "redirect-to-https",
-    "TrustedSigners": {
-      "Enabled": false,
-      "Quantity": 0
+    "CallerReference": "your-app-2024",
+    "Comment": "Your App Distribution",
+    "DefaultRootObject": "index.html",
+    "Origins": {
+        "Quantity": 1,
+        "Items": [
+            {
+                "Id": "S3-your-bucket-name",
+                "DomainName": "your-bucket-name.s3.amazonaws.com",
+                "S3OriginConfig": {
+                    "OriginAccessIdentity": ""
+                }
+            }
+        ]
     },
-    "ForwardedValues": {
-      "QueryString": false,
-      "Cookies": {
-        "Forward": "none"
-      }
-    }
-  },
-  "Enabled": true
+    "DefaultCacheBehavior": {
+        "TargetOriginId": "S3-your-bucket-name",
+        "ViewerProtocolPolicy": "redirect-to-https",
+        "TrustedSigners": {
+            "Enabled": false,
+            "Quantity": 0
+        },
+        "ForwardedValues": {
+            "QueryString": false,
+            "Cookies": {
+                "Forward": "none"
+            }
+        }
+    },
+    "Enabled": true
 }
 ```
 
 ### 5. Docker
 
 #### Dockerfile
+
 ```dockerfile
 # Build stage
 FROM node:18-alpine as build
@@ -227,6 +244,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 
 #### nginx.conf
+
 ```nginx
 events {
     worker_connections 1024;
@@ -255,6 +273,7 @@ http {
 ```
 
 #### Build & Run
+
 ```bash
 # Build Docker image
 docker build -t your-app .
@@ -266,6 +285,7 @@ docker run -p 80:80 your-app
 ## 🔧 Environment Configuration
 
 ### Production Environment
+
 ```env
 # .env.production
 VITE_APP_NAME=Your App Name
@@ -277,6 +297,7 @@ VITE_ANALYTICS_ID=your-analytics-id
 ```
 
 ### Staging Environment
+
 ```env
 # .env.staging
 VITE_APP_NAME=Your App Name (Staging)
@@ -290,18 +311,21 @@ VITE_ANALYTICS_ID=your-staging-analytics-id
 ## 🔒 Security Considerations
 
 ### Environment Variables
+
 - ✅ Never commit `.env` files
 - ✅ Use different secrets for each environment
 - ✅ Rotate secrets regularly
 - ✅ Use environment-specific configurations
 
 ### HTTPS
+
 - ✅ Always use HTTPS in production
 - ✅ Redirect HTTP to HTTPS
 - ✅ Use HSTS headers
 - ✅ Implement CSP headers
 
 ### Headers
+
 ```nginx
 # Security headers
 add_header X-Frame-Options "SAMEORIGIN" always;
@@ -314,13 +338,14 @@ add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsaf
 ## 📊 Monitoring & Analytics
 
 ### Performance Monitoring
+
 ```tsx
 // Add performance monitoring
 import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals'
 
 function sendToAnalytics(metric) {
-  // Send to your analytics service
-  console.log(metric)
+    // Send to your analytics service
+    console.log(metric)
 }
 
 getCLS(sendToAnalytics)
@@ -331,87 +356,90 @@ getTTFB(sendToAnalytics)
 ```
 
 ### Error Tracking
+
 ```tsx
 // Error boundary with tracking
 import { ErrorBoundary } from 'react-error-boundary'
 
 function ErrorFallback({ error, resetErrorBoundary }) {
-  // Send error to tracking service
-  console.error('Error caught by boundary:', error)
-  
-  return (
-    <div role="alert">
-      <h2>Something went wrong:</h2>
-      <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary}>Try again</button>
-    </div>
-  )
+    // Send error to tracking service
+    console.error('Error caught by boundary:', error)
+
+    return (
+        <div role='alert'>
+            <h2>Something went wrong:</h2>
+            <pre>{error.message}</pre>
+            <button onClick={resetErrorBoundary}>Try again</button>
+        </div>
+    )
 }
 
-<ErrorBoundary FallbackComponent={ErrorFallback}>
-  <App />
+;<ErrorBoundary FallbackComponent={ErrorFallback}>
+    <App />
 </ErrorBoundary>
 ```
 
 ## 🚀 CI/CD Pipeline
 
 ### GitHub Actions
+
 ```yaml
 name: Deploy
 
 on:
-  push:
-    branches: [ main, staging ]
+    push:
+        branches: [main, staging]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run lint
-      - run: npm run test
-      - run: npm run build
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+            - run: npm install
+            - run: npm run lint
+            - run: npm run test
+            - run: npm run build
 
-  deploy-staging:
-    if: github.ref == 'refs/heads/staging'
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run build:staging
-      - name: Deploy to Staging
-        run: |
-          # Deploy to staging environment
-          echo "Deploying to staging..."
+    deploy-staging:
+        if: github.ref == 'refs/heads/staging'
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+            - run: npm install
+            - run: npm run build:staging
+            - name: Deploy to Staging
+              run: |
+                  # Deploy to staging environment
+                  echo "Deploying to staging..."
 
-  deploy-production:
-    if: github.ref == 'refs/heads/main'
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run build
-      - name: Deploy to Production
-        run: |
-          # Deploy to production environment
-          echo "Deploying to production..."
+    deploy-production:
+        if: github.ref == 'refs/heads/main'
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+            - run: npm install
+            - run: npm run build
+            - name: Deploy to Production
+              run: |
+                  # Deploy to production environment
+                  echo "Deploying to production..."
 ```
 
 ## 🔄 Rollback Strategy
 
 ### Quick Rollback
+
 ```bash
 # Rollback to previous version
 git checkout previous-commit-hash
@@ -420,12 +448,14 @@ npm run build
 ```
 
 ### Blue-Green Deployment
+
 1. Deploy new version to staging
 2. Test thoroughly
 3. Switch traffic to new version
 4. Keep old version as backup
 
 ### Canary Deployment
+
 1. Deploy to small percentage of users
 2. Monitor metrics
 3. Gradually increase traffic
@@ -434,6 +464,7 @@ npm run build
 ## 📈 Performance Optimization
 
 ### Bundle Analysis
+
 ```bash
 # Analyze bundle size
 npm run build:analyze
@@ -443,6 +474,7 @@ npm ls --depth=0
 ```
 
 ### Caching Strategy
+
 ```nginx
 # Cache static assets
 location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
@@ -458,6 +490,7 @@ location ~* \.html$ {
 ```
 
 ### CDN Configuration
+
 - Use CDN for static assets
 - Enable gzip compression
 - Optimize images
@@ -468,6 +501,7 @@ location ~* \.html$ {
 ### Common Issues
 
 #### Build Failures
+
 ```bash
 # Clear cache and reinstall
 rm -rf node_modules package-lock.json
@@ -481,12 +515,14 @@ npm run lint
 ```
 
 #### Runtime Errors
+
 - Check browser console for errors
 - Verify environment variables
 - Check network requests
 - Validate API endpoints
 
 #### Performance Issues
+
 - Analyze bundle size
 - Check for memory leaks
 - Optimize images

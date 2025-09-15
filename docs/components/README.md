@@ -5,6 +5,7 @@ Dokumentasi lengkap untuk semua komponen yang tersedia dalam Template Shadcn.
 ## 📋 Daftar Komponen
 
 ### 🎨 UI Components
+
 - [Button](./ui-components.md#button) - Komponen tombol dengan berbagai variant
 - [Input](./ui-components.md#input) - Input field dengan validasi
 - [Card](./ui-components.md#card) - Container untuk konten
@@ -12,27 +13,32 @@ Dokumentasi lengkap untuk semua komponen yang tersedia dalam Template Shadcn.
 - [Table](./ui-components.md#table) - Tabel data dengan sorting dan pagination
 
 ### 🔐 Authentication Components
+
 - [LoginForm](./auth-components.md#login-form) - Form login
 - [RegisterForm](./auth-components.md#register-form) - Form registrasi
 - [ForgotPasswordForm](./auth-components.md#forgot-password-form) - Form reset password
 - [SocialLogin](./auth-components.md#social-login) - Login dengan social media
 
 ### 📊 Dashboard Components
+
 - [StatCard](./dashboard-components.md#stat-card) - Kartu statistik
 - [OverviewChart](./dashboard-components.md#overview-chart) - Chart overview
 - [RecentActivities](./dashboard-components.md#recent-activities) - Aktivitas terbaru
 
 ### 🧭 Navigation Components
+
 - [NavigationMenu](./navigation-components.md#navigation-menu) - Menu navigasi utama
 - [MobileMenu](./navigation-components.md#mobile-menu) - Menu untuk mobile
 - [Breadcrumb](./navigation-components.md#breadcrumb) - Breadcrumb navigation
 
 ### 🎭 Layout Components
+
 - [Header](./layout-components.md#header) - Header aplikasi
 - [Footer](./layout-components.md#footer) - Footer aplikasi
 - [Sidebar](./layout-components.md#sidebar) - Sidebar navigasi
 
 ### 🔧 Utility Components
+
 - [ThemeToggle](./utility-components.md#theme-toggle) - Toggle tema dark/light
 - [LoadingSpinner](./utility-components.md#loading-spinner) - Spinner loading
 - [ErrorBoundary](./utility-components.md#error-boundary) - Error boundary
@@ -64,16 +70,16 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export function MyComponent() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>My Card</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button>Click me</Button>
-      </CardContent>
-    </Card>
-  )
+    return (
+        <Card>
+            <CardHeader>
+                <CardTitle>My Card</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <Button>Click me</Button>
+            </CardContent>
+        </Card>
+    )
 }
 ```
 
@@ -101,10 +107,10 @@ Komponen mendukung tema yang dapat dikustomisasi melalui CSS variables:
 
 ```css
 :root {
-  --primary: 222.2 84% 4.9%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96%;
-  --secondary-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 84% 4.9%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
 }
 ```
 
@@ -114,11 +120,17 @@ Setiap komponen memiliki props yang dapat dikustomisasi:
 
 ```tsx
 interface ButtonProps {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
-  size?: 'default' | 'sm' | 'lg' | 'icon'
-  className?: string
-  children: React.ReactNode
-  onClick?: () => void
+    variant?:
+        | 'default'
+        | 'destructive'
+        | 'outline'
+        | 'secondary'
+        | 'ghost'
+        | 'link'
+    size?: 'default' | 'sm' | 'lg' | 'icon'
+    className?: string
+    children: React.ReactNode
+    onClick?: () => void
 }
 ```
 
@@ -128,10 +140,10 @@ Semua komponen sudah responsive dan mobile-friendly:
 
 ```tsx
 // Responsive classes
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  <Card>Content 1</Card>
-  <Card>Content 2</Card>
-  <Card>Content 3</Card>
+<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+    <Card>Content 1</Card>
+    <Card>Content 2</Card>
+    <Card>Content 3</Card>
 </div>
 ```
 
@@ -144,8 +156,8 @@ import { render, screen } from '@testing-library/react'
 import { Button } from '@/components/ui/button'
 
 test('renders button with text', () => {
-  render(<Button>Click me</Button>)
-  expect(screen.getByText('Click me')).toBeInTheDocument()
+    render(<Button>Click me</Button>)
+    expect(screen.getByText('Click me')).toBeInTheDocument()
 })
 ```
 

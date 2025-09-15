@@ -27,7 +27,7 @@ export function Logo({ className }: LogoProps) {
             <span
                 className={cn(
                     'ml-2 font-bold text-xl transition-all duration-300',
-                    collapsed && 'hidden',
+                    collapsed && orientation === 'vertical' && 'hidden',
                     orientation === 'horizontal' && 'ml-3'
                 )}
             >

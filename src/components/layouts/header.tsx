@@ -8,9 +8,9 @@ import { NavigationMenu } from '@/components/navigation/navigation-menu'
 import { NavigationSettings } from '@/components/navigation/navigation-settings'
 import { useNavigationStore } from '@/store/navigation-store'
 import { UserProfile } from '@/components/layouts/user/user-profile'
-import { NavigationCollapseButton } from '@/components/navigation/collapse/navigation-collapse-button'
 import { NavigationMobileTrigger } from '@/components/navigation/mobile/navigation-mobile-trigger'
 import { NavigationMobileMenu } from '@/components/navigation/mobile/navigation-mobile-menu'
+import { Logo } from '@/components/brand/logo'
 import { cn } from '@/lib/utils'
 
 interface HeaderProps {
@@ -22,12 +22,12 @@ export function Header({ className }: HeaderProps) {
 
     return (
         <header className={cn('w-full', className)}>
-            <div className='flex items-center w-full h-14 px-4'>
+            <div className='flex items-center px-4 w-full h-14'>
                 <div className='flex gap-2 items-center'>
                     <NavigationMobileTrigger>
                         <NavigationMobileMenu />
                     </NavigationMobileTrigger>
-                    <NavigationCollapseButton />
+                    <Logo className='ml-2' />
                 </div>
                 {orientation === 'horizontal' && (
                     <div className='hidden flex-1 md:block'>

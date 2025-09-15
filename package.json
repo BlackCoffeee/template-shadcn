@@ -1,7 +1,7 @@
 {
-    "name": "template-shadcn",
+    "name": "raujan-pool-syariah",
     "private": true,
-    "version": "2.0.0-dev",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite --config vite.config.development.ts",
@@ -58,6 +58,7 @@
         "postcss": "^8.5.1",
         "prettier": "^3.6.2",
         "prettier-plugin-tailwindcss": "^0.6.10",
+        "shadcn": "^3.2.1",
         "tailwindcss": "^4.1.13",
         "terser": "^5.44.0",
         "tw-animate-css": "^1.3.8",

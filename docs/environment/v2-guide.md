@@ -7,11 +7,13 @@ Template Shadcn v2.0.0 memperkenalkan sistem environment management yang lebih r
 ## 📋 Struktur Environment v2.0.0
 
 ### Version Mapping
+
 - **Development**: `2.0.0-dev` (Branch: `development`)
-- **Staging**: `2.0.0-beta` (Branch: `staging`) 
+- **Staging**: `2.0.0-beta` (Branch: `staging`)
 - **Production**: `2.0.0` (Branch: `main`)
 
 ### File Structure
+
 ```
 ├── .env.development          # Environment variables untuk development
 ├── config/
@@ -28,6 +30,7 @@ Template Shadcn v2.0.0 memperkenalkan sistem environment management yang lebih r
 ## 🔧 Cara Menggunakan Environment v2.0.0
 
 ### 1. Development Environment
+
 ```bash
 # Switch ke branch development
 git checkout development
@@ -40,6 +43,7 @@ npm run build:dev
 ```
 
 ### 2. Staging Environment
+
 ```bash
 # Switch ke branch staging
 git checkout staging
@@ -52,6 +56,7 @@ npm run build:staging
 ```
 
 ### 3. Production Environment
+
 ```bash
 # Switch ke branch main
 git checkout main
@@ -63,27 +68,31 @@ npm run build
 ## 🎨 Fitur Baru v2.0.0
 
 ### 1. Version Info Component
+
 ```tsx
 import { VersionInfo } from '@/components/v2/VersionInfo'
 
 // Menampilkan informasi versi dan environment
-<VersionInfo />
+;<VersionInfo />
 ```
 
 ### 2. Feature Flags System
+
 ```tsx
 import { FeatureFlags } from '@/components/v2/FeatureFlags'
 
 // Menampilkan status feature flags
-<FeatureFlags />
+;<FeatureFlags />
 ```
 
 ### 3. Demo Page v2.0.0
+
 Akses demo page di: `http://localhost:3000/v2/demo`
 
 ## 🔄 Workflow Development v2.0.0
 
 ### 1. Mulai Development
+
 ```bash
 # 1. Switch ke development branch
 git checkout development
@@ -102,6 +111,7 @@ npm run dev
 ```
 
 ### 2. Testing di Staging
+
 ```bash
 # 1. Merge development ke staging
 git checkout staging
@@ -115,6 +125,7 @@ npm run build:staging
 ```
 
 ### 3. Release ke Production
+
 ```bash
 # 1. Merge staging ke main
 git checkout main
@@ -132,19 +143,25 @@ git push origin v2.0.0
 ## 🛡️ Isolasi Environment
 
 ### Environment Variables
+
 Setiap environment memiliki file `.env` terpisah:
+
 - `.env.development` - Development settings
-- `.env.staging` - Staging settings  
+- `.env.staging` - Staging settings
 - `.env.production` - Production settings
 
 ### Configuration Files
+
 Setiap environment memiliki config TypeScript terpisah:
+
 - `config/environments/development.ts`
 - `config/environments/staging.ts`
 - `config/environments/production.ts`
 
 ### Build Configurations
+
 Setiap environment memiliki Vite config terpisah:
+
 - `vite.config.development.ts`
 - `vite.config.staging.ts`
 - `vite.config.production.ts`
@@ -152,21 +169,25 @@ Setiap environment memiliki Vite config terpisah:
 ## 🚀 Keuntungan Sistem v2.0.0
 
 ### 1. **Isolasi Lengkap**
+
 - Konfigurasi terpisah untuk setiap environment
 - Tidak ada konflik antara versi
 - Environment variables yang aman
 
 ### 2. **Type Safety**
+
 - TypeScript-based configuration
 - Auto-completion dan error checking
 - Compile-time validation
 
 ### 3. **Flexibility**
+
 - Mudah menambah environment baru
 - Feature flags per environment
 - Build optimization per environment
 
 ### 4. **Maintainability**
+
 - Dokumentasi lengkap
 - Struktur yang terorganisir
 - Easy debugging
@@ -174,6 +195,7 @@ Setiap environment memiliki Vite config terpisah:
 ## 🔍 Debugging Environment
 
 ### Check Current Environment
+
 ```tsx
 import config from '@/config'
 
@@ -183,6 +205,7 @@ console.log('API Base URL:', config.api.baseUrl)
 ```
 
 ### Environment Variables
+
 ```bash
 # Check environment variables
 echo $VITE_APP_ENVIRONMENT
@@ -192,30 +215,33 @@ echo $VITE_APP_VERSION
 ## 📝 Best Practices
 
 ### 1. **Environment Variables**
+
 - Gunakan prefix `VITE_` untuk client-side variables
 - Jangan commit file `.env.*` ke git
 - Gunakan `.env.example` sebagai template
 
 ### 2. **Configuration**
+
 - Update semua environment configs saat menambah fitur baru
 - Gunakan TypeScript untuk type safety
 - Dokumentasikan perubahan konfigurasi
 
 ### 3. **Versioning**
+
 - Update version di semua environment configs
 - Gunakan semantic versioning
 - Tag release dengan deskripsi lengkap
 
 ## 🆚 Perbedaan v1.1.0 vs v2.0.0
 
-| Feature | v1.1.0 | v2.0.0 |
-|---------|--------|--------|
-| Environment Management | Basic | Advanced with TypeScript |
-| Configuration | Single file | Multiple environment files |
-| Version Control | Manual | Automated with config |
-| Feature Flags | None | Built-in system |
-| Build Optimization | Basic | Environment-specific |
-| Documentation | Basic | Comprehensive |
+| Feature                | v1.1.0      | v2.0.0                     |
+| ---------------------- | ----------- | -------------------------- |
+| Environment Management | Basic       | Advanced with TypeScript   |
+| Configuration          | Single file | Multiple environment files |
+| Version Control        | Manual      | Automated with config      |
+| Feature Flags          | None        | Built-in system            |
+| Build Optimization     | Basic       | Environment-specific       |
+| Documentation          | Basic       | Comprehensive              |
 
 ## 🎯 Next Steps
 

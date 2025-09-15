@@ -1,69 +1,28 @@
 /**
- * Layout utama aplikasi
+ * Root Layout - Layout utama aplikasi
  * @author Muhammad Arif <https://github.com/BlackCoffeee>
- * @createAt 2025-01-18
+ * @createAt 2025-01-19
  */
 import { Outlet } from 'react-router-dom'
-import { Footer } from './footer'
 import { useNavigationStore } from '@/store/navigation-store'
-import { cn } from '@/lib/utils'
-import { Header } from './header'
-import { NavigationMenu } from '@/components/navigation/navigation-menu'
+import { HorizontalLayout } from './horizontal-layout'
+import { VerticalLayout } from './vertical-layout'
 
 export function RootLayout() {
-    const { orientation, collapsed } = useNavigationStore()
+    const { orientation } = useNavigationStore()
+
+    // Render layout berdasarkan state
+    if (orientation === 'horizontal') {
+        return (
+            <HorizontalLayout>
+                <Outlet />
+            </HorizontalLayout>
+        )
+    }
 
     return (
-        <div className='min-h-screen flex flex-col bg-background'>
-            <div
-                className={cn(
-                    'fixed top-0 right-0 z-50',
-                    'left-0',
-                    orientation === 'vertical' &&
-                        'md:left-[var(--sidebar-width)]',
-                    collapsed
-                        ? '[--sidebar-width:4rem]'
-                        : '[--sidebar-width:16rem]'
-                )}
-            >
-                <Header className='border-b border-foreground/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60' />
-            </div>
-
-            <div className='flex flex-1 pt-14'>
-                {orientation === 'vertical' && (
-                    <aside
-                        className={cn(
-                            'hidden md:block fixed left-0 top-0 h-screen transition-all duration-300 bg-background border-r border-foreground/10',
-                            collapsed ? 'w-16' : 'w-64'
-                        )}
-                    >
-                        <div className='h-full'>
-                            <NavigationMenu />
-                        </div>
-                    </aside>
-                )}
-
-                <main
-                    className={cn(
-                        'flex-1 flex flex-col min-h-[calc(100vh-3.5rem)] bg-page',
-                        orientation === 'vertical' &&
-                            (collapsed ? 'md:ml-20' : 'md:ml-72'),
-                        orientation === 'horizontal' && 'px-4'
-                    )}
-                >
-                    <div
-                        className={cn(
-                            'flex-1 py-6 space-y-4',
-                            orientation === 'horizontal'
-                                ? 'container mx-auto'
-                                : 'container px-6'
-                        )}
-                    >
-                        <Outlet />
-                    </div>
-                    <Footer />
-                </main>
-            </div>
-        </div>
+        <VerticalLayout>
+            <Outlet />
+        </VerticalLayout>
     )
 }

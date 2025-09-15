@@ -50,6 +50,16 @@ export default {
                     DEFAULT: 'var(--card)',
                     foreground: 'var(--card-foreground)',
                 },
+                sidebar: {
+                    DEFAULT: 'var(--sidebar)',
+                    foreground: 'var(--sidebar-foreground)',
+                    primary: 'var(--sidebar-primary)',
+                    'primary-foreground': 'var(--sidebar-primary-foreground)',
+                    accent: 'var(--sidebar-accent)',
+                    'accent-foreground': 'var(--sidebar-accent-foreground)',
+                    border: 'var(--sidebar-border)',
+                    ring: 'var(--sidebar-ring)',
+                },
             },
             boxShadow: {
                 xs: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
@@ -80,6 +90,10 @@ export default {
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
+            },
+            spacing: {
+                'sidebar-width': 'var(--sidebar-width)',
+                'sidebar-width-icon': 'var(--sidebar-width-icon)',
             },
         },
     },
